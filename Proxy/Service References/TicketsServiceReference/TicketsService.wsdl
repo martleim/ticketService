@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TicketsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Tickets.DomainModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITicketsService_GetAllEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllEventSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventSessions" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllEventSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllSessionTicketCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSessionTicketCategories" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllSessionTicketCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSessionTicketCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllUserTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserTransactions" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_GetAllUserTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_AddTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_AddTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_UpdateTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_UpdateTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_RemoveTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ITicketsService_RemoveTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTransactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITicketsService">
+    <wsdl:operation name="GetAllEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllEvents" message="tns:ITicketsService_GetAllEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllEventsResponse" message="tns:ITicketsService_GetAllEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEventSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllEventSessions" message="tns:ITicketsService_GetAllEventSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllEventSessionsResponse" message="tns:ITicketsService_GetAllEventSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSessionTicketCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllSessionTicketCategories" message="tns:ITicketsService_GetAllSessionTicketCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllSessionTicketCategoriesResponse" message="tns:ITicketsService_GetAllSessionTicketCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllUserTransactions" message="tns:ITicketsService_GetAllUserTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllUserTransactionsResponse" message="tns:ITicketsService_GetAllUserTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/AddTransaction" message="tns:ITicketsService_AddTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/AddTransactionResponse" message="tns:ITicketsService_AddTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/UpdateTransaction" message="tns:ITicketsService_UpdateTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/UpdateTransactionResponse" message="tns:ITicketsService_UpdateTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/RemoveTransaction" message="tns:ITicketsService_RemoveTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/RemoveTransactionResponse" message="tns:ITicketsService_RemoveTransaction_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITicketsService" type="tns:ITicketsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllEvents">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/GetAllEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEventSessions">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/GetAllEventSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSessionTicketCategories">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/GetAllSessionTicketCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserTransactions">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/GetAllUserTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransaction">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/AddTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransaction">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/UpdateTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTransaction">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/RemoveTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TicketsService">
+    <wsdl:port name="BasicHttpBinding_ITicketsService" binding="tns:BasicHttpBinding_ITicketsService">
+      <soap:address location="http://localhost/Tickets.Services/TicketsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

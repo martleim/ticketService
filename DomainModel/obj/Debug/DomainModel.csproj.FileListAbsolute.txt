@@ -1,0 +1,4 @@
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\Debug\DomainModel.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\Debug\DomainModel.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Debug\DomainModel.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Debug\DomainModel.pdb

@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ticketsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ticketsModelStoreContainer">
+    <EntitySet Name="UserSet" EntityType="ticketsModel.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventSet" EntityType="ticketsModel.Store.EventSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SessionSet" EntityType="ticketsModel.Store.SessionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TicketSet" EntityType="ticketsModel.Store.TicketSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TransactionSet" EntityType="ticketsModel.Store.TransactionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TicketSaleSet" EntityType="ticketsModel.Store.TicketSaleSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EventSession" Association="ticketsModel.Store.EventSession">
+      <End Role="Event" EntitySet="EventSet" />
+      <End Role="Session" EntitySet="SessionSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserTransactions" Association="ticketsModel.Store.UserTransactions">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Transaction" EntitySet="TransactionSet" />
+    </AssociationSet>
+    <AssociationSet Name="EventTicket" Association="ticketsModel.Store.EventTicket">
+      <End Role="Event" EntitySet="EventSet" />
+      <End Role="Ticket" EntitySet="TicketSet" />
+    </AssociationSet>
+    <AssociationSet Name="SessionTicket" Association="ticketsModel.Store.SessionTicket">
+      <End Role="Session" EntitySet="SessionSet" />
+      <End Role="Ticket" EntitySet="TicketSet" />
+    </AssociationSet>
+    <AssociationSet Name="SessionTicketSale" Association="ticketsModel.Store.SessionTicketSale">
+      <End Role="Session" EntitySet="SessionSet" />
+      <End Role="TicketSale" EntitySet="TicketSaleSet" />
+    </AssociationSet>
+    <AssociationSet Name="TicketTicketSale" Association="ticketsModel.Store.TicketTicketSale">
+      <End Role="Ticket" EntitySet="TicketSet" />
+      <End Role="TicketSale" EntitySet="TicketSaleSet" />
+    </AssociationSet>
+    <AssociationSet Name="TransactionTicketSale" Association="ticketsModel.Store.TransactionTicketSale">
+      <End Role="Transaction" EntitySet="TransactionSet" />
+      <End Role="TicketSale" EntitySet="TicketSaleSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="binary" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="EventSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SessionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateStart" Type="datetime" Nullable="false" />
+    <Property Name="DateEnd" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SpacesAvailable" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TicketSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="SessionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransactionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TicketSaleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionId" Type="int" Nullable="false" />
+    <Property Name="TicketId" Type="int" Nullable="false" />
+    <Property Name="TransactionId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EventSession">
+    <End Role="Event" Type="ticketsModel.Store.EventSet" Multiplicity="1" />
+    <End Role="Session" Type="ticketsModel.Store.SessionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserTransactions">
+    <End Role="User" Type="ticketsModel.Store.UserSet" Multiplicity="1" />
+    <End Role="Transaction" Type="ticketsModel.Store.TransactionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventTicket">
+    <End Role="Event" Type="ticketsModel.Store.EventSet" Multiplicity="1" />
+    <End Role="Ticket" Type="ticketsModel.Store.TicketSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SessionTicket">
+    <End Role="Session" Type="ticketsModel.Store.SessionSet" Multiplicity="1" />
+    <End Role="Ticket" Type="ticketsModel.Store.TicketSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SessionTicketSale">
+    <End Role="Session" Type="ticketsModel.Store.SessionSet" Multiplicity="1" />
+    <End Role="TicketSale" Type="ticketsModel.Store.TicketSaleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TicketSale">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TicketTicketSale">
+    <End Role="Ticket" Type="ticketsModel.Store.TicketSet" Multiplicity="1" />
+    <End Role="TicketSale" Type="ticketsModel.Store.TicketSaleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TicketSale">
+        <PropertyRef Name="TicketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TransactionTicketSale">
+    <End Role="Transaction" Type="ticketsModel.Store.TransactionSet" Multiplicity="1" />
+    <End Role="TicketSale" Type="ticketsModel.Store.TicketSaleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TicketSale">
+        <PropertyRef Name="TransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ticketsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="Binary" MaxLength="64" FixedLength="true" Nullable="false" />
+          <NavigationProperty Name="Transaction" Relationship="ticketsModel.UserTransactions" FromRole="User" ToRole="Transaction" />
+        </EntityType>
+        <EntityContainer Name="ticketsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserSet" EntityType="Self.User" />
+          <EntitySet Name="EventSet" EntityType="ticketsModel.Event" />
+          <EntitySet Name="SessionSet" EntityType="ticketsModel.Session" />
+          <EntitySet Name="TicketSet" EntityType="ticketsModel.Ticket" />
+          <EntitySet Name="TransactionSet" EntityType="ticketsModel.Transaction" />
+          <AssociationSet Name="EventSession" Association="ticketsModel.EventSession">
+            <End Role="Event" EntitySet="EventSet" />
+            <End Role="Session" EntitySet="SessionSet" />
+          </AssociationSet>
+          <AssociationSet Name="UserTransactions" Association="ticketsModel.UserTransactions">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="Transaction" EntitySet="TransactionSet" />
+          </AssociationSet>
+          <EntitySet Name="TicketSaleSet" EntityType="ticketsModel.TicketSale" />
+          <AssociationSet Name="EventTicket" Association="ticketsModel.EventTicket">
+            <End Role="Event" EntitySet="EventSet" />
+            <End Role="Ticket" EntitySet="TicketSet" />
+          </AssociationSet>
+          <AssociationSet Name="SessionTicket" Association="ticketsModel.SessionTicket">
+            <End Role="Session" EntitySet="SessionSet" />
+            <End Role="Ticket" EntitySet="TicketSet" />
+          </AssociationSet>
+          <AssociationSet Name="SessionTicketSale" Association="ticketsModel.SessionTicketSale">
+            <End Role="Session" EntitySet="SessionSet" />
+            <End Role="TicketSale" EntitySet="TicketSaleSet" />
+          </AssociationSet>
+          <AssociationSet Name="TicketTicketSale" Association="ticketsModel.TicketTicketSale">
+            <End Role="Ticket" EntitySet="TicketSet" />
+            <End Role="TicketSale" EntitySet="TicketSaleSet" />
+          </AssociationSet>
+          <AssociationSet Name="TransactionTicketSale" Association="ticketsModel.TransactionTicketSale">
+            <End Role="Transaction" EntitySet="TransactionSet" />
+            <End Role="TicketSale" EntitySet="TicketSaleSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="ticketsModel.EventSession" FromRole="Event" ToRole="Session" />
+          <NavigationProperty Name="Ticket" Relationship="ticketsModel.EventTicket" FromRole="Event" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ticketsModel.EventSession" FromRole="Session" ToRole="Event" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="SpacesAvailable" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Ticket" Relationship="ticketsModel.SessionTicket" FromRole="Session" ToRole="Ticket" />
+          <NavigationProperty Name="TicketSale" Relationship="ticketsModel.SessionTicketSale" FromRole="Session" ToRole="TicketSale" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ticketsModel.EventTicket" FromRole="Ticket" ToRole="Event" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="SessionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TicketSale" Relationship="ticketsModel.TicketTicketSale" FromRole="Ticket" ToRole="TicketSale" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="TicketSale" Relationship="ticketsModel.TransactionTicketSale" FromRole="Transaction" ToRole="TicketSale" />
+        </EntityType>
+        <Association Name="EventSession">
+          <End Type="ticketsModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="ticketsModel.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserTransactions">
+          <End Type="ticketsModel.User" Role="User" Multiplicity="1" />
+          <End Type="ticketsModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TicketSale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="Int32" Nullable="false" />
+          <Property Name="TicketId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="EventTicket">
+          <End Type="ticketsModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="ticketsModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionTicket">
+          <End Type="ticketsModel.Session" Role="Session" Multiplicity="1" />
+          <End Type="ticketsModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionTicketSale">
+          <End Type="ticketsModel.Session" Role="Session" Multiplicity="1" />
+          <End Type="ticketsModel.TicketSale" Role="TicketSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TicketSale">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TicketTicketSale">
+          <End Type="ticketsModel.Ticket" Role="Ticket" Multiplicity="1" />
+          <End Type="ticketsModel.TicketSale" Role="TicketSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TicketSale">
+              <PropertyRef Name="TicketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TransactionTicketSale">
+          <End Type="ticketsModel.Transaction" Role="Transaction" Multiplicity="1" />
+          <End Type="ticketsModel.TicketSale" Role="TicketSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TicketSale">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ticketsModelStoreContainer" CdmEntityContainer="ticketsEntities">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ticketsModel.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ticketsModel.Event)">
+        <MappingFragment StoreEntitySet="EventSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ticketsModel.Session)">
+        <MappingFragment StoreEntitySet="SessionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SpacesAvailable" ColumnName="SpacesAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ticketsModel.Ticket)">
+        <MappingFragment StoreEntitySet="TicketSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ticketsModel.Transaction)">
+        <MappingFragment StoreEntitySet="TransactionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketSaleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ticketsModel.TicketSale)">
+        <MappingFragment StoreEntitySet="TicketSaleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
