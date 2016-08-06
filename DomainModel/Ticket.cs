@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tickets.DomainModel
+namespace Tickets.Model
 {
     using System;
     using System.Collections.Generic;

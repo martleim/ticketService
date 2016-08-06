@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using Tickets.DomainModel;
+using Tickets.Model;
 
 namespace Tickets.Services
 {
@@ -19,7 +19,7 @@ namespace Tickets.Services
         IList<Session> GetAllEventSessions(int eventId);
 
         [OperationContract]
-        IList<Ticket> GetAllSessionTicketCategories(int sessionId);
+        IList<Ticket> GetAllSessionTickets(int sessionId);
 
         [OperationContract]
         IList<Transaction> GetAllUserTransactions(int userId);

@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Tickets.DomainModel" />
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/TicketsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Tickets.Model" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ITicketsService_GetAllEvents_InputMessage">
@@ -19,11 +19,11 @@
   <wsdl:message name="ITicketsService_GetAllEventSessions_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEventSessionsResponse" />
   </wsdl:message>
-  <wsdl:message name="ITicketsService_GetAllSessionTicketCategories_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllSessionTicketCategories" />
+  <wsdl:message name="ITicketsService_GetAllSessionTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSessionTickets" />
   </wsdl:message>
-  <wsdl:message name="ITicketsService_GetAllSessionTicketCategories_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllSessionTicketCategoriesResponse" />
+  <wsdl:message name="ITicketsService_GetAllSessionTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSessionTicketsResponse" />
   </wsdl:message>
   <wsdl:message name="ITicketsService_GetAllUserTransactions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUserTransactions" />
@@ -58,9 +58,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllEventSessions" message="tns:ITicketsService_GetAllEventSessions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllEventSessionsResponse" message="tns:ITicketsService_GetAllEventSessions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllSessionTicketCategories">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllSessionTicketCategories" message="tns:ITicketsService_GetAllSessionTicketCategories_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllSessionTicketCategoriesResponse" message="tns:ITicketsService_GetAllSessionTicketCategories_OutputMessage" />
+    <wsdl:operation name="GetAllSessionTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllSessionTickets" message="tns:ITicketsService_GetAllSessionTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketsService/GetAllSessionTicketsResponse" message="tns:ITicketsService_GetAllSessionTickets_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllUserTransactions">
       <wsdl:input wsaw:Action="http://tempuri.org/ITicketsService/GetAllUserTransactions" message="tns:ITicketsService_GetAllUserTransactions_InputMessage" />
@@ -99,8 +99,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllSessionTicketCategories">
-      <soap:operation soapAction="http://tempuri.org/ITicketsService/GetAllSessionTicketCategories" style="document" />
+    <wsdl:operation name="GetAllSessionTickets">
+      <soap:operation soapAction="http://tempuri.org/ITicketsService/GetAllSessionTickets" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

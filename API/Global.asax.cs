@@ -12,6 +12,11 @@ namespace API
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+        }
+        protected void Application_BeginRequest()
+        {
+            var originalPath = HttpContext.Current.Request.Path.ToLower();
         }
     }
 }

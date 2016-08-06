@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Tickets.Business;
-using Tickets.DomainModel;
+using Tickets.Model;
 
 namespace Tickets.Services
 {
@@ -27,9 +27,9 @@ namespace Tickets.Services
             return new TicketBusinessManager().GetAllEventSessions(eventId);
         }
 
-        public IList<Ticket> GetAllSessionTicketCategories(int sessionId)
+        public IList<Ticket> GetAllSessionTickets(int sessionId)
         {
-            return new TicketBusinessManager().GetAllSessionTicket(sessionId);
+            return new TicketBusinessManager().GetAllSessionTickets(sessionId);
         }
 
         public IList<Transaction> GetAllUserTransactions(int userId)

@@ -16,7 +16,7 @@
     <RootNamespace>Tickets.Web</RootNamespace>
     <AssemblyName>Tickets.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -94,11 +94,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controllers\events\sessionEditController.js" />
+    <Content Include="app\controllers\events\ticketEditController.js" />
+    <Content Include="app\directives\dateTimePicker.js" />
+    <Content Include="app\services\validationService.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\angular.min.js.map" />
+    <Content Include="scripts\angular-route.min.js.map" />
+    <Content Include="scripts\angular-animate.min.js.map" />
+    <Content Include="app\services\clients.json" />
+    <Content Include="app\services\deliveries.json" />
+    <Content Include="app\services\mapElements.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -107,12 +116,36 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\config.js" />
+    <Content Include="app\controllers\tickets\clientEditController.js" />
+    <Content Include="app\controllers\tickets\ticketsController.js" />
+    <Content Include="app\controllers\events\eventsController.js" />
+    <Content Include="app\controllers\events\eventEditController.js" />
+    <Content Include="app\directives\grid.js" />
+    <Content Include="app\filters\nameFilter.js" />
+    <Content Include="app\partials\dialog.html" />
+    <Content Include="app\partials\modal.html" />
+    <Content Include="app\services\ticketsService.js" />
+    <Content Include="app\services\dataMocksService.js" />
+    <Content Include="app\services\dataService.js" />
+    <Content Include="app\services\eventsService.js" />
+    <Content Include="app\services\modalService.js" />
+    <Content Include="app\views\tickets\clientEdit.html" />
+    <Content Include="app\views\tickets\tickets.html" />
+    <Content Include="app\views\events\events.html" />
+    <Content Include="app\views\events\eventEdit.html" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="css\styles.css" />
     <Content Include="index.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\angular-agility.min.js" />
+    <Content Include="scripts\angular-animate.js" />
+    <Content Include="scripts\angular-animate.min.js" />
     <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular-route.min.js" />
     <Content Include="scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="scripts\angular-ui\ui-bootstrap.js" />
@@ -125,7 +158,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\" />
+    <Folder Include="lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -142,7 +175,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>24791</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:24732/</IISUrl>
+          <IISUrl>http://localhost/Tickets.Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

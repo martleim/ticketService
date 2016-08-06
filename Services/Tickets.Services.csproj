@@ -41,6 +41,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -70,6 +78,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +98,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EventsService.svc" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="SecurityService.svc" />
@@ -96,6 +106,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsService.svc.cs">
+      <DependentUpon>EventsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IEventsService.cs" />
     <Compile Include="ISecurityService.cs" />
     <Compile Include="SecurityService.svc.cs">
       <DependentUpon>SecurityService.svc</DependentUpon>
@@ -126,9 +140,9 @@
       <Project>{b68ff4fb-6ff4-464c-9d09-d6d9f0284ec4}</Project>
       <Name>Tickets.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainModel\Tickets.DomainModel.csproj">
+    <ProjectReference Include="..\DomainModel\Tickets.Model.csproj">
       <Project>{b647db4c-9fa8-41c5-a733-466b38b683c5}</Project>
-      <Name>Tickets.DomainModel</Name>
+      <Name>Tickets.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

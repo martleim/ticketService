@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using Tickets.DomainModel;
+using Tickets.Model;
 
 namespace Tickets.Services
 {

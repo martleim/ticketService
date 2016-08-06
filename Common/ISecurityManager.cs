@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Tickets.DomainModel;
+using Tickets.Model;
 
 namespace Tickets.Common
 {

@@ -9,11 +9,11 @@
 
 namespace Tickets.DataAccess.Models
 {
-    using DomainModel;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    using Tickets.Model;
+    
     public partial class ticketsEntities : DbContext
     {
         public ticketsEntities()

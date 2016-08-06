@@ -5,24 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tickets.DomainModel
+namespace Tickets.Model
 {
     [MetadataType(typeof(EventMetadata))]
     public partial class Event
     {
     }
 
-    [MetadataType(typeof(EventMetadata))]
+    [MetadataType(typeof(SessionMetadata))]
     public partial class Session
     {
     }
 
-    [MetadataType(typeof(TicketSaleMetadata))]
-    public partial class TicketSale
+    [MetadataType(typeof(TicketMetadata))]
+    public partial class Ticket
     {
     }
 
-    [MetadataType(typeof(TicketMetadata))]
+    [MetadataType(typeof(TicketSaleMetadata))]
     public partial class TicketSale
     {
     }

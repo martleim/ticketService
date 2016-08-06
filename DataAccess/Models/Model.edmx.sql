@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/05/2016 15:40:20
+-- Date Created: 08/06/2016 17:30:53
 -- Generated from EDMX file: C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -23,6 +23,21 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_UserTransactions]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TransactionSet] DROP CONSTRAINT [FK_UserTransactions];
 GO
+IF OBJECT_ID(N'[dbo].[FK_EventTicket]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TicketSet] DROP CONSTRAINT [FK_EventTicket];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SessionTicket]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TicketSet] DROP CONSTRAINT [FK_SessionTicket];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SessionTicketSale]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TicketSaleSet] DROP CONSTRAINT [FK_SessionTicketSale];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TicketTicketSale]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TicketSaleSet] DROP CONSTRAINT [FK_TicketTicketSale];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TransactionTicketSale]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TicketSaleSet] DROP CONSTRAINT [FK_TransactionTicketSale];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -37,8 +52,8 @@ GO
 IF OBJECT_ID(N'[dbo].[SessionSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SessionSet];
 GO
-IF OBJECT_ID(N'[dbo].[TicketCategorySet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TicketCategorySet];
+IF OBJECT_ID(N'[dbo].[TicketSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TicketSet];
 GO
 IF OBJECT_ID(N'[dbo].[TransactionSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TransactionSet];
@@ -62,7 +77,8 @@ GO
 -- Creating table 'EventSet'
 CREATE TABLE [dbo].[EventSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Name] nvarchar(max)  NOT NULL
+    [Name] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL
 );
 GO
 

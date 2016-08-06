@@ -90,9 +90,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainModel\Tickets.DomainModel.csproj">
+    <ProjectReference Include="..\DomainModel\Tickets.Model.csproj">
       <Project>{b647db4c-9fa8-41c5-a733-466b38b683c5}</Project>
-      <Name>Tickets.DomainModel</Name>
+      <Name>Tickets.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿using Tickets.DomainModel;
+﻿using Tickets.Model;
 using System.Collections.Generic;
 using Tickets.DataAccess;
 using Tickets.Common;
@@ -44,7 +44,7 @@ namespace Tickets.Business
                 d => d.EventId.Equals(eventId));
         }
 
-        public IList<Ticket> GetAllSessionTicketCategories(int sessionId)
+        public IList<Ticket> GetAllSessionTickets(int sessionId)
         {
             return _ticketRepository.GetAll(
                 d => d.SessionId.Equals(sessionId));

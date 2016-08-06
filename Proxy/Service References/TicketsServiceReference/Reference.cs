@@ -16,46 +16,46 @@ namespace Tickets.Proxy.TicketsServiceReference {
     public interface ITicketsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllEvents", ReplyAction="http://tempuri.org/ITicketsService/GetAllEventsResponse")]
-        Tickets.DomainModel.Event[] GetAllEvents();
+        Tickets.Model.Event[] GetAllEvents();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllEvents", ReplyAction="http://tempuri.org/ITicketsService/GetAllEventsResponse")]
-        System.Threading.Tasks.Task<Tickets.DomainModel.Event[]> GetAllEventsAsync();
+        System.Threading.Tasks.Task<Tickets.Model.Event[]> GetAllEventsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllEventSessions", ReplyAction="http://tempuri.org/ITicketsService/GetAllEventSessionsResponse")]
-        Tickets.DomainModel.Session[] GetAllEventSessions(int eventId);
+        Tickets.Model.Session[] GetAllEventSessions(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllEventSessions", ReplyAction="http://tempuri.org/ITicketsService/GetAllEventSessionsResponse")]
-        System.Threading.Tasks.Task<Tickets.DomainModel.Session[]> GetAllEventSessionsAsync(int eventId);
+        System.Threading.Tasks.Task<Tickets.Model.Session[]> GetAllEventSessionsAsync(int eventId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllSessionTicketCategories", ReplyAction="http://tempuri.org/ITicketsService/GetAllSessionTicketCategoriesResponse")]
-        Tickets.DomainModel.TicketCategory[] GetAllSessionTicketCategories(int sessionId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllSessionTickets", ReplyAction="http://tempuri.org/ITicketsService/GetAllSessionTicketsResponse")]
+        Tickets.Model.Ticket[] GetAllSessionTickets(int sessionId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllSessionTicketCategories", ReplyAction="http://tempuri.org/ITicketsService/GetAllSessionTicketCategoriesResponse")]
-        System.Threading.Tasks.Task<Tickets.DomainModel.TicketCategory[]> GetAllSessionTicketCategoriesAsync(int sessionId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllUserTransactions", ReplyAction="http://tempuri.org/ITicketsService/GetAllUserTransactionsResponse")]
-        Tickets.DomainModel.Transaction[] GetAllUserTransactions(int userId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllSessionTickets", ReplyAction="http://tempuri.org/ITicketsService/GetAllSessionTicketsResponse")]
+        System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetAllSessionTicketsAsync(int sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllUserTransactions", ReplyAction="http://tempuri.org/ITicketsService/GetAllUserTransactionsResponse")]
-        System.Threading.Tasks.Task<Tickets.DomainModel.Transaction[]> GetAllUserTransactionsAsync(int userId);
+        Tickets.Model.Transaction[] GetAllUserTransactions(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/GetAllUserTransactions", ReplyAction="http://tempuri.org/ITicketsService/GetAllUserTransactionsResponse")]
+        System.Threading.Tasks.Task<Tickets.Model.Transaction[]> GetAllUserTransactionsAsync(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/AddTransaction", ReplyAction="http://tempuri.org/ITicketsService/AddTransactionResponse")]
-        void AddTransaction(Tickets.DomainModel.Transaction transaction);
+        void AddTransaction(Tickets.Model.Transaction transaction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/AddTransaction", ReplyAction="http://tempuri.org/ITicketsService/AddTransactionResponse")]
-        System.Threading.Tasks.Task AddTransactionAsync(Tickets.DomainModel.Transaction transaction);
+        System.Threading.Tasks.Task AddTransactionAsync(Tickets.Model.Transaction transaction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/UpdateTransaction", ReplyAction="http://tempuri.org/ITicketsService/UpdateTransactionResponse")]
-        void UpdateTransaction(Tickets.DomainModel.Transaction transaction);
+        void UpdateTransaction(Tickets.Model.Transaction transaction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/UpdateTransaction", ReplyAction="http://tempuri.org/ITicketsService/UpdateTransactionResponse")]
-        System.Threading.Tasks.Task UpdateTransactionAsync(Tickets.DomainModel.Transaction transaction);
+        System.Threading.Tasks.Task UpdateTransactionAsync(Tickets.Model.Transaction transaction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/RemoveTransaction", ReplyAction="http://tempuri.org/ITicketsService/RemoveTransactionResponse")]
-        void RemoveTransaction(Tickets.DomainModel.Transaction transaction);
+        void RemoveTransaction(Tickets.Model.Transaction transaction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketsService/RemoveTransaction", ReplyAction="http://tempuri.org/ITicketsService/RemoveTransactionResponse")]
-        System.Threading.Tasks.Task RemoveTransactionAsync(Tickets.DomainModel.Transaction transaction);
+        System.Threading.Tasks.Task RemoveTransactionAsync(Tickets.Model.Transaction transaction);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -85,59 +85,59 @@ namespace Tickets.Proxy.TicketsServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Tickets.DomainModel.Event[] GetAllEvents() {
+        public Tickets.Model.Event[] GetAllEvents() {
             return base.Channel.GetAllEvents();
         }
         
-        public System.Threading.Tasks.Task<Tickets.DomainModel.Event[]> GetAllEventsAsync() {
+        public System.Threading.Tasks.Task<Tickets.Model.Event[]> GetAllEventsAsync() {
             return base.Channel.GetAllEventsAsync();
         }
         
-        public Tickets.DomainModel.Session[] GetAllEventSessions(int eventId) {
+        public Tickets.Model.Session[] GetAllEventSessions(int eventId) {
             return base.Channel.GetAllEventSessions(eventId);
         }
         
-        public System.Threading.Tasks.Task<Tickets.DomainModel.Session[]> GetAllEventSessionsAsync(int eventId) {
+        public System.Threading.Tasks.Task<Tickets.Model.Session[]> GetAllEventSessionsAsync(int eventId) {
             return base.Channel.GetAllEventSessionsAsync(eventId);
         }
         
-        public Tickets.DomainModel.TicketCategory[] GetAllSessionTicketCategories(int sessionId) {
-            return base.Channel.GetAllSessionTicketCategories(sessionId);
+        public Tickets.Model.Ticket[] GetAllSessionTickets(int sessionId) {
+            return base.Channel.GetAllSessionTickets(sessionId);
         }
         
-        public System.Threading.Tasks.Task<Tickets.DomainModel.TicketCategory[]> GetAllSessionTicketCategoriesAsync(int sessionId) {
-            return base.Channel.GetAllSessionTicketCategoriesAsync(sessionId);
+        public System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetAllSessionTicketsAsync(int sessionId) {
+            return base.Channel.GetAllSessionTicketsAsync(sessionId);
         }
         
-        public Tickets.DomainModel.Transaction[] GetAllUserTransactions(int userId) {
+        public Tickets.Model.Transaction[] GetAllUserTransactions(int userId) {
             return base.Channel.GetAllUserTransactions(userId);
         }
         
-        public System.Threading.Tasks.Task<Tickets.DomainModel.Transaction[]> GetAllUserTransactionsAsync(int userId) {
+        public System.Threading.Tasks.Task<Tickets.Model.Transaction[]> GetAllUserTransactionsAsync(int userId) {
             return base.Channel.GetAllUserTransactionsAsync(userId);
         }
         
-        public void AddTransaction(Tickets.DomainModel.Transaction transaction) {
+        public void AddTransaction(Tickets.Model.Transaction transaction) {
             base.Channel.AddTransaction(transaction);
         }
         
-        public System.Threading.Tasks.Task AddTransactionAsync(Tickets.DomainModel.Transaction transaction) {
+        public System.Threading.Tasks.Task AddTransactionAsync(Tickets.Model.Transaction transaction) {
             return base.Channel.AddTransactionAsync(transaction);
         }
         
-        public void UpdateTransaction(Tickets.DomainModel.Transaction transaction) {
+        public void UpdateTransaction(Tickets.Model.Transaction transaction) {
             base.Channel.UpdateTransaction(transaction);
         }
         
-        public System.Threading.Tasks.Task UpdateTransactionAsync(Tickets.DomainModel.Transaction transaction) {
+        public System.Threading.Tasks.Task UpdateTransactionAsync(Tickets.Model.Transaction transaction) {
             return base.Channel.UpdateTransactionAsync(transaction);
         }
         
-        public void RemoveTransaction(Tickets.DomainModel.Transaction transaction) {
+        public void RemoveTransaction(Tickets.Model.Transaction transaction) {
             base.Channel.RemoveTransaction(transaction);
         }
         
-        public System.Threading.Tasks.Task RemoveTransactionAsync(Tickets.DomainModel.Transaction transaction) {
+        public System.Threading.Tasks.Task RemoveTransactionAsync(Tickets.Model.Transaction transaction) {
             return base.Channel.RemoveTransactionAsync(transaction);
         }
     }

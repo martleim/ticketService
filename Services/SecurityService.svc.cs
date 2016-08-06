@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Tickets.Business;
-using Tickets.DomainModel;
+using Tickets.Model;
 
 namespace Tickets.Services
 {

@@ -53,6 +53,7 @@
     <Property Name="Name" Type="String" Nullable="false" />
     <NavigationProperty Name="Session" Relationship="ticketsModel.EventSession" FromRole="Event" ToRole="Session" />
     <NavigationProperty Name="Ticket" Relationship="ticketsModel.EventTicket" FromRole="Event" ToRole="Ticket" />
+    <Property Name="Description" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="Session">
     <Key>

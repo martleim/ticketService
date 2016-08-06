@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EventsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Tickets.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEventsService_GetSingleEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetSingleEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvents" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_AddEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_AddEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_UpdateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_UpdateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_RemoveEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_RemoveEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllEventSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventSessions" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllEventSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetSingleSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleSession" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetSingleSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_AddSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSession" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_AddSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_UpdateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSession" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_UpdateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_RemoveSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSession" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_RemoveSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllSessionsTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSessionsTickets" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllSessionsTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSessionsTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetSingleTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleTicket" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetSingleTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_AddTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTicket" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_AddTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_UpdateTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTicket" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_UpdateTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_RemoveTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTicket" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_RemoveTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTicketResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEventsService">
+    <wsdl:operation name="GetSingleEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetSingleEvent" message="tns:IEventsService_GetSingleEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetSingleEventResponse" message="tns:IEventsService_GetSingleEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetAllEvents" message="tns:IEventsService_GetAllEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetAllEventsResponse" message="tns:IEventsService_GetAllEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/AddEvent" message="tns:IEventsService_AddEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/AddEventResponse" message="tns:IEventsService_AddEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/UpdateEvent" message="tns:IEventsService_UpdateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/UpdateEventResponse" message="tns:IEventsService_UpdateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/RemoveEvent" message="tns:IEventsService_RemoveEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/RemoveEventResponse" message="tns:IEventsService_RemoveEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEventSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetAllEventSessions" message="tns:IEventsService_GetAllEventSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetAllEventSessionsResponse" message="tns:IEventsService_GetAllEventSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetSingleSession" message="tns:IEventsService_GetSingleSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetSingleSessionResponse" message="tns:IEventsService_GetSingleSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/AddSession" message="tns:IEventsService_AddSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/AddSessionResponse" message="tns:IEventsService_AddSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/UpdateSession" message="tns:IEventsService_UpdateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/UpdateSessionResponse" message="tns:IEventsService_UpdateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/RemoveSession" message="tns:IEventsService_RemoveSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/RemoveSessionResponse" message="tns:IEventsService_RemoveSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSessionsTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetAllSessionsTickets" message="tns:IEventsService_GetAllSessionsTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetAllSessionsTicketsResponse" message="tns:IEventsService_GetAllSessionsTickets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetSingleTicket" message="tns:IEventsService_GetSingleTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetSingleTicketResponse" message="tns:IEventsService_GetSingleTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/AddTicket" message="tns:IEventsService_AddTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/AddTicketResponse" message="tns:IEventsService_AddTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/UpdateTicket" message="tns:IEventsService_UpdateTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/UpdateTicketResponse" message="tns:IEventsService_UpdateTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/RemoveTicket" message="tns:IEventsService_RemoveTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/RemoveTicketResponse" message="tns:IEventsService_RemoveTicket_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEventsService" type="tns:IEventsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSingleEvent">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetSingleEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetAllEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvent">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/AddEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/UpdateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEvent">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/RemoveEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEventSessions">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetAllEventSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSession">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetSingleSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSession">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/AddSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/UpdateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSession">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/RemoveSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSessionsTickets">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetAllSessionsTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleTicket">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetSingleTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTicket">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/AddTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicket">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/UpdateTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTicket">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/RemoveTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EventsService">
+    <wsdl:port name="BasicHttpBinding_IEventsService" binding="tns:BasicHttpBinding_IEventsService">
+      <soap:address location="http://localhost/Tickets.Services/EventsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

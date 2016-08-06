@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.DataAccess", "5.DataAccess", "{2910858F-BEA5-41C8-8EF0-65BA5DEA65CE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModel", "DomainModel", "{E62803D4-AA02-4E78-B32D-403910C6E193}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{E62803D4-AA02-4E78-B32D-403910C6E193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tickets.DomainModel", "DomainModel\Tickets.DomainModel.csproj", "{B647DB4C-9FA8-41C5-A733-466B38B683C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tickets.Model", "DomainModel\Tickets.Model.csproj", "{B647DB4C-9FA8-41C5-A733-466B38B683C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Business", "4.Business", "{1F651B7D-3E4C-42FD-9C9A-A0824148328D}"
 EndProject

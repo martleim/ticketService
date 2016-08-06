@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Tickets.DomainModel;
+using Tickets.Model;
 
 namespace Tickets.Common
 {
@@ -8,7 +8,7 @@ namespace Tickets.Common
         
         IList<Event> GetAllEvents();
         IList<Session> GetAllEventSessions(int eventId);
-        IList<Ticket> GetAllSessionTicketCategories(int sessionId);
+        IList<Ticket> GetAllSessionTickets(int sessionId);
         IList<Transaction> GetAllUserTransactions(int userId);
         void AddTransaction(params Transaction[] transactions);
         void UpdateTransaction(params Transaction[] transactions);

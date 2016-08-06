@@ -44,3 +44,4 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Web\bin\Microsoft
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Web\obj\Debug\Tickets.Web.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Web\obj\Debug\Tickets.Web.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Web\obj\Debug\Tickets.Web.csprojResolveAssemblyReference.cache

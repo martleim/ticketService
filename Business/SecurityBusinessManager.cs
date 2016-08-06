@@ -1,4 +1,4 @@
-﻿using Tickets.DomainModel;
+﻿using Tickets.Model;
 using System.Collections.Generic;
 using Tickets.DataAccess;
 using Tickets.Common;

@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tickets.Common;
-using Tickets.DomainModel;
+using Tickets.Model;
+using Tickets.Proxy.TicketsServiceReference;
 
 namespace Tickets.Proxy
 {
@@ -12,37 +13,37 @@ namespace Tickets.Proxy
     {
         public void AddTransaction(params Transaction[] transactions)
         {
-            new TicketsServiceReference.TicketsServiceClient().AddTransaction(transactions.First());
+            new TicketsServiceClient().AddTransaction(transactions.First());
         }
 
         public IList<Event> GetAllEvents()
         {
-            return new TicketsServiceReference.TicketsServiceClient().GetAllEvents();
+            return new TicketsServiceClient().GetAllEvents();
         }
 
         public IList<Session> GetAllEventSessions(int eventId)
         {
-            return new TicketsServiceReference.TicketsServiceClient().GetAllEventSessions(eventId);
+            return new TicketsServiceClient().GetAllEventSessions(eventId);
         }
 
-        public IList<Ticket> GetAllSessionTicketCategories(int sessionId)
+        public IList<Ticket> GetAllSessionTickets(int sessionId)
         {
-            return new TicketsServiceReference.TicketsServiceClient().GetAllSessionTicketCategories(sessionId);
+            return new TicketsServiceClient().GetAllSessionTickets(sessionId);
         }
 
         public IList<Transaction> GetAllUserTransactions(int userId)
         {
-            return new TicketsServiceReference.TicketsServiceClient().GetAllUserTransactions(userId);
+            return new TicketsServiceClient().GetAllUserTransactions(userId);
         }
 
         public void RemoveTransaction(params Transaction[] transactions)
         {
-            new TicketsServiceReference.TicketsServiceClient().RemoveTransaction(transactions.First());
+            new TicketsServiceClient().RemoveTransaction(transactions.First());
         }
 
         public void UpdateTransaction(params Transaction[] transactions)
         {
-            new TicketsServiceReference.TicketsServiceClient().UpdateTransaction(transactions.First());
+            new TicketsServiceClient().UpdateTransaction(transactions.First());
         }
     }
 }

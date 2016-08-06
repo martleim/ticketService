@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tickets.DomainModel
+namespace Tickets.Model
 {
     public class MustHaveOneElementAttribute : ValidationAttribute
     {
