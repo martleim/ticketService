@@ -1,0 +1,26 @@
+﻿<div class="view modalContainer">
+    <div class="container" ng-controller="TicketEditController">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span>Ticket: {{name}}</h3>
+        </header>
+        <div ng-if="validationLoaded">
+            <div aa-configured-form validation-config="formconfig" class="form-horizontal" ng-form="ticketEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Ticket Data</h4>
+                        <br />
+                    </div>
+                </div>
+
+                <input aa-field-group="model.Name" />
+                <input type="number" aa-field-group="model.Price"></input>
+                <textarea aa-field-group="model.Description"></textarea>
+
+                <button ng-click="$close()" type="submit" class="btn btn-secondary">Cancel</button>
+                <button ng-click="save()" type="submit" class="btn btn-primary" ng-disabled="!ticketEdit.$valid ">Create</button>
+                <br />
+            </div>
+        </div>
+        
+    </div>
+</div>

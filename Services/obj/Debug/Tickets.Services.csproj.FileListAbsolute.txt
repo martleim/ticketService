@@ -2,6 +2,8 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Appl
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Services.dll.config
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Services.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Services.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.SqlServer.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -10,10 +12,13 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Micr
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.WindowsServer.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.ApplicationInsights.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Business.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Model.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Common.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.DataAccess.dll
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Business.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Model.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.xml
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.SqlServer.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AI.Web.xml
@@ -24,8 +29,3 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tick
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\obj\Debug\Tickets.Services.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\obj\Debug\Tickets.Services.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\obj\Debug\Tickets.Services.pdb
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.SqlServer.dll
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.xml
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\EntityFramework.SqlServer.xml
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Model.dll
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Model.pdb

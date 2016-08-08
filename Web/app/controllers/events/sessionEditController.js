@@ -1,30 +1,41 @@
 (function () {
 
-    var SessionEditController = function ($rootScope, $scope, $routeParams, $timeout, dataService, modalService, validationService) {
+    var SessionEditController = function ($rootScope, $scope, $routeParams, dataService, modalService, validationService) {
 
-        var id = ($routeParams.id) ? $routeParams.id : "",
-            timer,
-            onRouteChangeOff;
+        var id = ($routeParams.id) ? $routeParams.id : "";
 
         $scope.validationLoaded = false;
         $scope.formconfig = false;
-        validationService.getValidation("Session", "model").then(function (ret) {
-            $scope.validationLoaded = true;
-            $scope.formconfig = ret.data;
-        });
 
+        $scope.EventTickets = $scope.$parent.modalOptions.tickets;
         $scope.edit = (id && id != "");
         $scope.title = ($scope.edit) ? "Edit" : "Add";
         $scope.buttonText = ($scope.edit) ? "Save" : "Add";
         $scope.updateStatus = false;
         $scope.errorMessage = "";
 
+        var eventId = $scope.$parent.modalOptions.eventId;
+
         init();
 
         $scope.save = function () {
             var sessionToSave = angular.copy($scope.model);
+            sessionToSave.Ticket = [];
+            function getTicketById(id) {
+                for (var i = 0; i < $scope.EventTickets.length; i++) {
+                    if ($scope.EventTickets[i].Id == id) {
+                        return angular.copy($scope.EventTickets[i]);
+                    }
+                }
+            }
+            for (var i = 0; i < sessionToSave.TicketIds.length; i++) {
+                var ticket = getTicketById(sessionToSave.TicketIds[i]);
+                if(ticket)
+                    sessionToSave.Ticket.push(ticket);
+            }
             $scope.$close(sessionToSave);
-            processSuccess();
+            
+            
         };
 
         $scope.delete = function () {
@@ -46,14 +57,22 @@
         };
 
         function init() {
-            $scope.model = {};
-			dataService.eventsService.getSession(id).then(function(ret){
-				
-				if (id != "") {
-					$scope.model = angular.copy(ret.data.result);
-				}
-				
-			})
+            $scope.model = {
+                DateStart: new Date(),
+                DateEnd: new Date(),
+                EventId: eventId
+            };
+            /*dataService.eventsService.getSession(id).then(function (ret) {
+                if (id != "") {
+                    $scope.model = angular.copy(ret.data.result);
+                }
+            });
+            */
+            validationService.getValidation("Session", "model").then(function (ret) {
+                $scope.formconfig = ret.data;
+                $scope.validationLoaded = true;
+            });
+
             
         }
         
@@ -65,29 +84,13 @@
             $scope.openEditSessionModal();
         };
 
-        function processSuccess() {
-            $scope.editForm.$dirty = false;
-            $scope.updateStatus = true;
-            $scope.title = "Editar";
-            $scope.buttonText = "Guardar";
-            $scope.edit=true;
-            startTimer();
-        }
 
-        function startTimer() {
-            timer = $timeout(function () {
-                $timeout.cancel(timer);
-                $scope.errorMessage = '';
-                $scope.updateStatus = false;
-                
-            }, 1000);
-        }
 
     };
 
     SessionEditController.$inject = ["$rootScope", "$scope", "$routeParams",
-                                      "$timeout", "dataService", "modalService", "validationService"];
+                                       "dataService", "modalService", "validationService"];
 
-    angular.module("sessionsApp").controller("SessionEditController", SessionEditController);
+    angular.module("ticketsApp").controller("SessionEditController", SessionEditController);
 
 }());

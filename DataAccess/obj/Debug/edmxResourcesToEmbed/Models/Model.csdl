@@ -29,8 +29,8 @@
       <End Role="Ticket" EntitySet="TicketSet" />
     </AssociationSet>
     <AssociationSet Name="SessionTicket" Association="ticketsModel.SessionTicket">
-      <End Role="Session" EntitySet="SessionSet" />
-      <End Role="Ticket" EntitySet="TicketSet" />
+      <End EntitySet="SessionSet" Role="Session" />
+      <End EntitySet="TicketSet" Role="Ticket" />
     </AssociationSet>
     <AssociationSet Name="SessionTicketSale" Association="ticketsModel.SessionTicketSale">
       <End Role="Session" EntitySet="SessionSet" />
@@ -63,7 +63,6 @@
     <Property Name="DateStart" Type="DateTime" Nullable="false" />
     <Property Name="DateEnd" Type="DateTime" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" />
-    <NavigationProperty Name="Event" Relationship="ticketsModel.EventSession" FromRole="Session" ToRole="Event" />
     <Property Name="EventId" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Double" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" />
@@ -79,10 +78,8 @@
     <Property Name="Name" Type="String" Nullable="false" />
     <Property Name="Price" Type="Double" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" />
-    <NavigationProperty Name="Event" Relationship="ticketsModel.EventTicket" FromRole="Ticket" ToRole="Event" />
     <Property Name="EventId" Type="Int32" Nullable="false" />
-    <Property Name="SessionId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="TicketSale" Relationship="ticketsModel.TicketTicketSale" FromRole="Ticket" ToRole="TicketSale" />
+    <Property Name="SessionId" Nullable="false" Type="Int32" />
   </EntityType>
   <EntityType Name="Transaction">
     <Key>
@@ -139,8 +136,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SessionTicket">
-    <End Type="ticketsModel.Session" Role="Session" Multiplicity="1" />
-    <End Type="ticketsModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <End Type="ticketsModel.Session" Multiplicity="1" Role="Session" />
+    <End Type="ticketsModel.Ticket" Multiplicity="*" Role="Ticket" />
     <ReferentialConstraint>
       <Principal Role="Session">
         <PropertyRef Name="Id" />

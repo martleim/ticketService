@@ -43,6 +43,12 @@
   <wsdl:message name="IEventsService_GetAllEventSessions_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEventSessionsResponse" />
   </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllEventTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventTickets" />
+  </wsdl:message>
+  <wsdl:message name="IEventsService_GetAllEventTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventTicketsResponse" />
+  </wsdl:message>
   <wsdl:message name="IEventsService_GetSingleSession_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSingleSession" />
   </wsdl:message>
@@ -121,6 +127,10 @@
     <wsdl:operation name="GetAllEventSessions">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetAllEventSessions" message="tns:IEventsService_GetAllEventSessions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetAllEventSessionsResponse" message="tns:IEventsService_GetAllEventSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEventTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetAllEventTickets" message="tns:IEventsService_GetAllEventTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventsService/GetAllEventTicketsResponse" message="tns:IEventsService_GetAllEventTickets_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSingleSession">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventsService/GetSingleSession" message="tns:IEventsService_GetSingleSession_InputMessage" />
@@ -208,6 +218,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllEventSessions">
       <soap:operation soapAction="http://tempuri.org/IEventsService/GetAllEventSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEventTickets">
+      <soap:operation soapAction="http://tempuri.org/IEventsService/GetAllEventTickets" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

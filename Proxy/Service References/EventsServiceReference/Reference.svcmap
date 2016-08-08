@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c01f2257-51b9-4375-9d9f-7a51c6e4eaa2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f69002b8-7fd6-41a2-9875-95f3a744b999" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost/Tickets.Services/EventsService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EventsService.disco" MetadataType="Disco" ID="b9771276-043c-4e6d-8ea1-e02afe9a3854" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?disco" />
-    <MetadataFile FileName="EventsService.wsdl" MetadataType="Wsdl" ID="629c42ba-0c1b-4a2f-ab38-67efcdacd3ca" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?wsdl" />
-    <MetadataFile FileName="EventsService.xsd" MetadataType="Schema" ID="dc262813-9fe2-47f1-988a-19b0e58494e5" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd0" />
-    <MetadataFile FileName="EventsService1.xsd" MetadataType="Schema" ID="fe018dae-6ba5-4074-b90a-3f8d3ad86746" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd2" />
-    <MetadataFile FileName="EventsService2.xsd" MetadataType="Schema" ID="57b3bc73-82cb-49b8-9b85-ab4d07b082e0" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EventsService.disco" MetadataType="Disco" ID="dee12cf2-dedf-4791-9529-52e934162a43" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?disco" />
+    <MetadataFile FileName="EventsService.wsdl" MetadataType="Wsdl" ID="f5d28c51-612e-4e54-8020-01cdc4a4282f" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?wsdl" />
+    <MetadataFile FileName="EventsService.xsd" MetadataType="Schema" ID="7d660f84-57ec-4a49-9bfe-83301a86dd04" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EventsService1.xsd" MetadataType="Schema" ID="e4a9a2c7-0030-4dfb-8535-b421c8184e28" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EventsService2.xsd" MetadataType="Schema" ID="f0e90895-a6c4-44e0-b6b9-200c4fb72560" SourceId="1" SourceUrl="http://localhost/Tickets.Services/EventsService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

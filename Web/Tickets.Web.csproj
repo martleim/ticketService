@@ -94,10 +94,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controllers\events\sessionsController.js" />
     <Content Include="app\controllers\events\sessionEditController.js" />
     <Content Include="app\controllers\events\ticketEditController.js" />
     <Content Include="app\directives\dateTimePicker.js" />
     <Content Include="app\services\validationService.js" />
+    <Content Include="app\views\events\sessionEdit.html" />
+    <Content Include="app\views\events\sessions.html" />
+    <Content Include="app\views\events\ticketEdit.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -13,30 +13,35 @@ namespace Tickets.API.Controllers
     {
 
         [HttpGet]
-        public IHttpActionResult Events()
+        [Route("TicketSell/Events")]
+        public IHttpActionResult GetEvents()
         {
-            return Ok(new TicketsManagerProxy().GetAllEvents());
+            return Json(new TicketsManagerProxy().GetAllEvents());
         }
 
         [HttpGet]
-        public IHttpActionResult Sessions(int eventId)
+        [Route("TicketSell/Sessions/Event/{eventId}")]
+        public IHttpActionResult GetEventSessions(int eventId)
         {
-            return Ok(new TicketsManagerProxy().GetAllEventSessions(eventId));
+            return Json(new TicketsManagerProxy().GetAllEventSessions(eventId));
         }
 
         [HttpGet]
-        public IHttpActionResult Tickets(int sessionId)
+        [Route("TicketSell/Tickets/Session/{sessionId}")]
+        public IHttpActionResult GetSessionTickets(int sessionId)
         {
             return Ok(new TicketsManagerProxy().GetAllSessionTickets(sessionId));
         }
 
         [HttpGet]
-        public IHttpActionResult Transactions()
+        [Route("TicketSell/Transactions")]
+        public IHttpActionResult GetUserTransactions()
         {
             return Ok(new TicketsManagerProxy().GetAllUserTransactions(GetLoggedUserId()));
         }
 
         [HttpPost]
+        [Route("TicketSell/Transactions")]
         public IHttpActionResult Transactions(Transaction transaction)
         {
             transaction.UserId = GetLoggedUserId();
@@ -45,6 +50,7 @@ namespace Tickets.API.Controllers
         }
 
         [HttpPut]
+        [Route("TicketSell/Ticketss/Transactions/{transactionId}")]
         public IHttpActionResult Transactions(int transactionId, Transaction transaction)
         {
             transaction.Id = transactionId;
@@ -53,6 +59,7 @@ namespace Tickets.API.Controllers
         }
 
         [HttpDelete]
+        [Route("TicketSell/Ticketss/Transactions/{transactionId}")]
         public IHttpActionResult Transactions(int transactionId)
         {
             Transaction transaction = new Transaction() { Id = transactionId };

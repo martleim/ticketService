@@ -15,7 +15,7 @@
         <grid config="eventsGridConfig"></grid>
         <ul class="nav nav-pills" style="float:right;">
            <li><a ng-click="lastPage()">&lt;</a></li>
-           <li ng-repeat="page in navigatablePages" ng-class="(page==currentPage?'active':'')"><a ng-click="pageChanged(page)">{{page}}</a></li>
+           <li ng-repeat="page in navigatablePages" ng-class="(page-1==currentPage?'active':'')"><a ng-click="pageChanged(page-1)">{{page}}</a></li>
            <li><a ng-click="nextPage()">&gt;</a></li>
         </ul>
     </div>

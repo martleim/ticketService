@@ -410,11 +410,11 @@ input.ng-valid, select.ng-valid, textarea.ng-valid, select.ng-valid {
 
         .modalContainer datetimepicker {
             padding:0px!important;
-            margin-top: 25px;
-            margin-bottom: 17px;
+            /*margin-top: 25px;
+            margin-bottom: 17px;*/
         }
         .modalContainer datetimepicker .datetimepicker-wrapper:nth-of-type(2){
-            margin-top:-45px;
+            /*margin-top:-45px;*/
             margin-left: 10px;
         }
         .modalContainer datetimepicker>ng-form{

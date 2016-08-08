@@ -31,8 +31,12 @@
         };
         
 
-        factory.getSessions = function (eventId) {
-            return $http.get(sessionsUrl + "/" + eventId);
+        factory.getEventSessions = function (eventId) {
+            return $http.get(sessionsUrl + "/Event/" + eventId);
+        };
+
+        factory.getSession = function (sessionId) {
+            return $http.get(sessionsUrl + "/" + sessionId);
         };
 
         factory.insertSession = function (session) {
@@ -47,14 +51,10 @@
             return $http.delete(sessionsUrl + "/" + id);
         };
 
-        factory.getSession = function (id) {
-            return $http.get(sessionsUrl + "/" + id);
+        factory.getSessionTickets = function (id) {
+            return $http.get(ticketsUrl + "/Session/" + id);
         };
 
-
-        factory.getTickets = function (eventId) {
-            return $http.get(ticketsUrl + "/0/" + eventId);
-        };
 
         factory.insertTicket = function (ticket) {
             return $http.post(ticketsUrl, ticket);
@@ -68,8 +68,12 @@
             return $http.delete(ticketsUrl + "/" + id);
         };
 
-        factory.getTicket = function (id) {
-            return $http.get(ticketsUrl + "/0/" + id);
+        factory.getEventTickets = function (id) {
+            return $http.get(ticketsUrl + "/Event/" + id);
+        };
+
+        factory.getEvent = function (id) {
+            return $http.get(ticketsUrl + "/" + id);
         };
 
 
@@ -77,7 +81,7 @@
 
 
         factory.initialize = function(){
-        	return this.getEvents(0);
+        	
         }
 		
         return factory;

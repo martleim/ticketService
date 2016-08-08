@@ -23,19 +23,15 @@ namespace Tickets.API.Controllers
             {
                 events=events.Skip(start * limit.Value).Take(limit.Value).ToList();
             }
-            dynamic myobject = new ExpandoObject();
-            IDictionary<string, object> result = myobject;
-            result.Add("result", events);
-            result.Add("totalRecords", totalRecords); 
-            return Json(result);
+            return Json(GetPagedResult(events,totalRecords));
         }
 
-        [Route("Admin/Events/{id}")]
+        [Route("Admin/Events/{eventId}")]
         [HttpGet]
-        public IHttpActionResult GetEvents(int id)
+        public IHttpActionResult GetEvents(int eventId)
         {
-            var events = new EventsManagerProxy().GetSingleEvent(id);
-            return Ok(events.FirstOrDefault());
+            var e = new EventsManagerProxy().GetSingleEvent(eventId);
+            return Json(e);
         }
         [Route("Admin/Events")]
         [HttpPost]
@@ -44,7 +40,7 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().AddEvent(e);
             return Ok();
         }
-        [Route("Admin/Events/{id}")]
+        [Route("Admin/Events/{eventId}")]
         [HttpPut]
         public IHttpActionResult PutEvents(int eventId, Event e)
         {
@@ -52,7 +48,7 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().UpdateEvent(e);
             return Ok();
         }
-        [Route("Admin/Events/{id}")]
+        [Route("Admin/Events/{eventId}")]
         [HttpDelete]
         public IHttpActionResult DeleteEvents(int eventId)
         {
@@ -62,17 +58,17 @@ namespace Tickets.API.Controllers
             return Ok();
         }
 
-        [Route("Admin/Sessions")]
+        [Route("Admin/Sessions/Event/{eventId}")]
         [HttpGet]
-        public IHttpActionResult GetSessions(int eventId)
+        public IHttpActionResult GetEventSessions(int eventId)
         {
-            return Ok(new EventsManagerProxy().GetAllEventSessions(eventId));
+            return Json(GetResult(new EventsManagerProxy().GetAllEventSessions(eventId)));
         }
-        [Route("Admin/Sessions/{id}")]
+        [Route("Admin/Sessions/{sessionId}")]
         [HttpGet]
-        public IHttpActionResult Sessions(int sessionId)
+        public IHttpActionResult GetSession(int sessionId)
         {
-            return Ok(new EventsManagerProxy().GetSingleSession(sessionId));
+            return Json(new EventsManagerProxy().GetSingleSession(sessionId));
         }
         [Route("Admin/Sessions")]
         [HttpPost]
@@ -81,7 +77,7 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().AddSession(session);
             return Ok();
         }
-        [Route("Admin/Sessions/{id}")]
+        [Route("Admin/Sessions/{sessionId}")]
         [HttpPut]
         public IHttpActionResult PutSessions(int sessionId, Session session)
         {
@@ -89,7 +85,7 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().UpdateSession(session);
             return Ok();
         }
-        [Route("Admin/Sessions/{id}")]
+        [Route("Admin/Sessions/{sessionId}")]
         [HttpDelete]
         public IHttpActionResult DeleteSessions(int sessionId)
         {
@@ -98,11 +94,20 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().AddSession(e);
             return Ok();
         }
-        [Route("Admin/Tickets/{id}")]
-        public IHttpActionResult GetTickets(int sessionId)
+        [Route("Admin/Tickets/Event/{eventId}")]
+        [HttpGet]
+        public IHttpActionResult GetEventTickets(int eventId)
         {
-            return Ok(new EventsManagerProxy().GetAllSessionsTickets(sessionId));
+            return Json(GetResult(new EventsManagerProxy().GetAllEventTickets(eventId)));
         }
+
+        [Route("Admin/Tickets/Session/{sessionId}")]
+        [HttpGet]
+        public IHttpActionResult GetSessionTickets(int sessionId)
+        {
+            return Json(GetResult(new EventsManagerProxy().GetAllSessionsTickets(sessionId)));
+        }
+
         [Route("Admin/Tickets")]
         [HttpPost]
         public IHttpActionResult PostTickets(Ticket ticket)
@@ -110,7 +115,7 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().AddTicket(ticket);
             return Ok();
         }
-        [Route("Admin/Tickets/{id}")]
+        [Route("Admin/Tickets/{ticketId}")]
         [HttpPut]
         public IHttpActionResult PutTickets(int ticketId, Ticket ticket)
         {
@@ -118,7 +123,7 @@ namespace Tickets.API.Controllers
             new EventsManagerProxy().UpdateTicket(ticket);
             return Ok();
         }
-        [Route("Admin/Tickets/{id}")]
+        [Route("Admin/Tickets/{ticketId}")]
         [HttpDelete]
         public IHttpActionResult DeleteTickets(int ticketId)
         {

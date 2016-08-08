@@ -14,21 +14,11 @@ namespace Tickets.Model
     
     public partial class Ticket
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ticket()
-        {
-            this.TicketSale = new HashSet<TicketSale>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
         public int EventId { get; set; }
         public int SessionId { get; set; }
-    
-        public virtual Event Event { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TicketSale> TicketSale { get; set; }
     }
 }

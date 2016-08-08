@@ -77,7 +77,7 @@
         $scope.updateTickets = function(){
             dataService.ticketsService.getTickets(this.currentPage,this.pageSize).then(function(res){
 				res=res.data;
-				$scope.tickets=res.results;
+				$scope.tickets=res.result;
 				$scope.unFilteredTickets=$scope.tickets;
 
 				$scope.totalRecords=res.totalRecords;

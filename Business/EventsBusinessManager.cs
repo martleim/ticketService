@@ -33,12 +33,35 @@ namespace Tickets.Business
 
         public void AddEvent(params Event[] events)
         {
-            _eventRepository.Add(events);
+            foreach(Event e in events)
+            {
+                var tickets = e.Ticket;
+                e.Ticket = new HashSet<Ticket>();
+                _eventRepository.Add(events);
+                List<Ticket> toAdd = new List<Ticket>(tickets);
+                foreach (Ticket t in toAdd)
+                {
+                    t.EventId = e.Id;
+                }
+
+                _ticketRepository.Add(toAdd.ToArray());
+            }
         }
 
         public void AddSession(params Session[] sessions)
         {
-            _sessionRepository.Add(sessions);
+            foreach (Session s in sessions)
+            {
+                var tickets = s.Ticket;
+                s.Ticket = new HashSet<Ticket>();
+                _sessionRepository.Add(sessions);
+                List<Ticket> toAdd = new List<Ticket>(tickets);
+                foreach (Ticket t in toAdd)
+                {
+                    t.SessionId = s.Id;
+                }
+                _ticketRepository.Update(toAdd.ToArray());
+            }
         }
 
         public void AddTicket(params Ticket[] tickets)
@@ -48,31 +71,36 @@ namespace Tickets.Business
 
         public IList<Event> GetAllEvents()
         {
-            return _eventRepository.GetAll();
+            return _eventRepository.GetList(e=>true);
         }
-        public IList<Event> GetSingleEvent(int eventId)
+        public Event GetSingleEvent(int eventId)
         {
-            return _eventRepository.GetAll(e => e.Id == eventId);
+            return _eventRepository.GetSingle(e => e.Id == eventId, e=>e.Session);
         }
 
         public IList<Session> GetAllEventSessions(int eventId)
         {
-            return _sessionRepository.GetAll(s => s.EventId==eventId );
+            return _sessionRepository.GetList(s => s.EventId==eventId, s=>s.TicketSale );
         }
 
         public IList<Ticket> GetAllSessionsTickets(int sessionId)
         {
-            return _ticketRepository.GetAll(t => t.SessionId == sessionId);
+            return _ticketRepository.GetList(t => t.SessionId == sessionId);
         }
 
-        public IList<Session> GetSingleSession(int sessionId)
+        public IList<Ticket> GetAllEventTickets(int eventId)
         {
-            return _sessionRepository.GetAll(s => s.Id == sessionId);
+            return _ticketRepository.GetList(t => t.EventId == eventId);
         }
 
-        public IList<Ticket> GetSingleTicket(int ticketId)
+        public Session GetSingleSession(int sessionId)
         {
-            return _ticketRepository.GetAll(t => t.Id == ticketId);
+            return _sessionRepository.GetSingle(s => s.Id == sessionId, s => s.TicketSale);
+        }
+
+        public Ticket GetSingleTicket(int ticketId)
+        {
+            return _ticketRepository.GetSingle(t => t.Id == ticketId, t=>t.Description);
         }
 
         public void RemoveEvent(params Event[] events)

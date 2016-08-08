@@ -1,6 +1,6 @@
 (function () {
 
-    var TicketEditController = function ($rootScope, $scope, $routeParams, $timeout, dataService, modalService, validationService) {
+    var TicketEditController = function ($rootScope, $scope, $routeParams, dataService, modalService, validationService) {
 
         var id = ($routeParams.id) ? $routeParams.id : "",
             timer,
@@ -8,10 +8,7 @@
 
         $scope.validationLoaded = false;
         $scope.formconfig = false;
-        validationService.getValidation("Ticket", "model").then(function (ret) {
-            $scope.validationLoaded = true;
-            $scope.formconfig = ret.data;
-        });
+        
 
         $scope.edit = (id && id != "");
         $scope.title = ($scope.edit) ? "Edit" : "Add";
@@ -24,7 +21,7 @@
         $scope.save = function () {
             var ticketToSave = angular.copy($scope.model);
             $scope.$close(ticketToSave);
-            processSuccess();
+            
         };
 
         $scope.delete = function () {
@@ -46,14 +43,21 @@
         };
 
         function init() {
-            $scope.model = {};
-			dataService.eventsService.getTicket(id).then(function(ret){
-				
-				if (id != "") {
-					$scope.model = angular.copy(ret.data.result);
-				}
-				
-			})
+            $scope.model = {
+                Id:null
+            };
+            /*dataService.eventsService.getTicket(id).then(function (ret) {
+
+                if (id != "") {
+                    $scope.model = angular.copy(ret.data.result);
+                }
+
+            });*/
+
+            validationService.getValidation("Ticket", "model").then(function (ret) {
+                $scope.validationLoaded = true;
+                $scope.formconfig = ret.data;
+            });
             
         }
         
@@ -65,28 +69,12 @@
             $scope.openEditTicketModal();
         };
 
-        function processSuccess() {
-//            $scope.editForm.$dirty = false;
-            $scope.updateStatus = true;
-            $scope.title = "Editar";
-            $scope.buttonText = "Guardar";
-            $scope.edit=true;
-            startTimer();
-        }
-
-        function startTimer() {
-            timer = $timeout(function () {
-                $timeout.cancel(timer);
-                $scope.errorMessage = '';
-                $scope.updateStatus = false;
-                
-            }, 1000);
-        }
+        
 
     };
 
     TicketEditController.$inject = ["$rootScope", "$scope", "$routeParams",
-                                      "$timeout", "dataService", "modalService", "validationService"];
+                                       "dataService", "modalService", "validationService"];
 
     angular.module("ticketsApp").controller("TicketEditController", TicketEditController);
 

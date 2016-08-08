@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Tickets.Model;
+using Tickets.Services.Utils;
 
 namespace Tickets.Services
 {
@@ -13,10 +14,11 @@ namespace Tickets.Services
     public interface IEventsService
     {
         [OperationContract]
-        IList<Event> GetSingleEvent(int eventId);
+        Event GetSingleEvent(int eventId);
 
         [OperationContract]
-        IList<Event> GetAllEvents();
+        [ApplyDataContractResolver]
+        List<Event> GetAllEvents();
 
         [OperationContract]
         void AddEvent(Event e);
@@ -28,10 +30,13 @@ namespace Tickets.Services
         void RemoveEvent(Event e);
         
         [OperationContract]
-        IList<Session> GetAllEventSessions(int eventId);
+        List<Session> GetAllEventSessions(int eventId);
 
         [OperationContract]
-        IList<Session> GetSingleSession(int sessionId);
+        List<Ticket> GetAllEventTickets(int eventId);
+
+        [OperationContract]
+        Session GetSingleSession(int sessionId);
 
         [OperationContract]
         void AddSession(Session session);
@@ -43,10 +48,10 @@ namespace Tickets.Services
         void RemoveSession(Session session);
 
         [OperationContract]
-        IList<Ticket> GetAllSessionsTickets(int sessionId);
+        List<Ticket> GetAllSessionsTickets(int sessionId);
 
         [OperationContract]
-        IList<Ticket> GetSingleTicket(int ticketId);
+        Ticket GetSingleTicket(int ticketId);
 
         [OperationContract]
         void AddTicket(Ticket ticket);

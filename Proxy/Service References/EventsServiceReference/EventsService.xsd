@@ -11,7 +11,7 @@
   <xs:element name="GetSingleEventResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetSingleEventResult" nillable="true" type="q1:ArrayOfEvent" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetSingleEventResult" nillable="true" type="q1:Event" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -77,6 +77,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllEventTickets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEventTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetAllEventTicketsResult" nillable="true" type="q7:ArrayOfTicket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetSingleSession">
     <xs:complexType>
       <xs:sequence>
@@ -87,14 +101,14 @@
   <xs:element name="GetSingleSessionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetSingleSessionResult" nillable="true" type="q7:ArrayOfSession" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetSingleSessionResult" nillable="true" type="q8:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddSession">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="session" nillable="true" type="q8:Session" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="session" nillable="true" type="q9:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,7 +120,7 @@
   <xs:element name="UpdateSession">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="session" nillable="true" type="q9:Session" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="session" nillable="true" type="q10:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -118,7 +132,7 @@
   <xs:element name="RemoveSession">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="session" nillable="true" type="q10:Session" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="session" nillable="true" type="q11:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -137,7 +151,7 @@
   <xs:element name="GetAllSessionsTicketsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetAllSessionsTicketsResult" nillable="true" type="q11:ArrayOfTicket" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetAllSessionsTicketsResult" nillable="true" type="q12:ArrayOfTicket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -151,14 +165,14 @@
   <xs:element name="GetSingleTicketResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetSingleTicketResult" nillable="true" type="q12:ArrayOfTicket" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="GetSingleTicketResult" nillable="true" type="q13:Ticket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddTicket">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="ticket" nillable="true" type="q13:Ticket" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="ticket" nillable="true" type="q14:Ticket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -170,7 +184,7 @@
   <xs:element name="UpdateTicket">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="ticket" nillable="true" type="q14:Ticket" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="ticket" nillable="true" type="q15:Ticket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -182,7 +196,7 @@
   <xs:element name="RemoveTicket">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="ticket" nillable="true" type="q15:Ticket" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Tickets.Model" minOccurs="0" name="ticket" nillable="true" type="q16:Ticket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

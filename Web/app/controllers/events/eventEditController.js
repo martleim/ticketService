@@ -1,11 +1,12 @@
 (function () {
 
-    var EventEditController = function ($rootScope, $scope, $routeParams, $timeout, dataService, modalService, validationService) {
+    var EventEditController = function ($rootScope, $scope, $routeParams, dataService, modalService, validationService, appConfig) {
 
         var id = ($routeParams.id) ? $routeParams.id : "",
             timer,
             onRouteChangeOff;
 
+        var views = appConfig.views + "events/";
         $scope.validationLoaded = false;
         $scope.formconfig = false;
         validationService.getValidation("Event", "model").then(function (ret) {
@@ -25,12 +26,16 @@
             var eventToSave = angular.copy($scope.model);
 
             if (!this.edit) {
-                dataService.eventsService.insertEvent(eventToSave);
+                dataService.eventsService.insertEvent(eventToSave).then(function () {
+                    $scope.$close();
+                });
             }
             else {
-                dataService.eventsService.updateEvent(id,eventToSave);
+                dataService.eventsService.updateEvent(id, eventToSave).then(function () {
+                    $scope.$close();
+                });
             }
-            processSuccess();
+            
         };
 
 
@@ -63,8 +68,8 @@
 
         function init() {
             $scope.model = {
-                tickets: [],
-                sessions: []
+                Id:null,
+                Ticket: []
             }
             if (id != "") {
                 dataService.eventsService.getEvent(id).then(function (ret) {
@@ -95,7 +100,7 @@
                 // backdrop: true,
                 keyboard: true,
                 modalFade: true,
-                templateUrl: 'ticketEdit.html'
+                templateUrl: views+'ticketEdit.html'
             };
 
             var modalOptions = {
@@ -108,81 +113,16 @@
 
             var modal=modalService.showModal(modalOpts, modalOptions).then(function (result) {
                 if (result) {
-                    /*if (!result.Id) {
-                        dataService.createCategory(modalOptions.category.category, modalOptions.category.description, modalOptions.category.image).then($scope.refreshCategories);
-                    } else {
-                        dataService.updateCategory(modalOptions.category.id, modalOptions.category.category, modalOptions.category.description, modalOptions.category.image).then($scope.refreshCategories());
-                    }*/
-                    $scope.model.tickets.push(result);
+                    $scope.model.Ticket.push(result);
                 }
             });
         };
 
-        $scope.addSession = function () {
-            $scope.openEditSessionModal();
-        };
-
-        $scope.openEditSessionModal = function (session) {
-            var name = "";
-            if (session) {
-                name = session.name;
-                session = angular.copy(session);
-            } else {
-                session = {};
-            }
-
-            var modalOpts = {
-                // backdrop: true,
-                keyboard: true,
-                modalFade: true,
-                templateUrl: 'sessionEdit.html'
-            };
-
-            var modalOptions = {
-                closeButtonText: 'Cancel',
-                actionButtonText: 'Aceptar',
-                headerText: 'Editing ' + name,
-                bodyText: '',
-                session: session
-            };
-
-            var modal = modalService.showModal(modalOpts, modalOptions).then(function (result) {
-                if (result) {   
-                    /*if (!result.Id) {
-                        dataService.createCategory(modalOptions.category.category, modalOptions.category.description, modalOptions.category.image).then($scope.refreshCategories);
-                    } else {
-                        dataService.updateCategory(modalOptions.category.id, modalOptions.category.category, modalOptions.category.description, modalOptions.category.image).then($scope.refreshCategories());
-                    }*/
-                    $scope.model.sessions.push(result);
-                }
-            });
-        };
-
-        
-
-        function processSuccess() {
-            $scope.editForm.$dirty = false;
-            $scope.updateStatus = true;
-            $scope.title = "Editar";
-            $scope.buttonText = "Guardar";
-            $scope.edit=true;
-            startTimer();
-            $scope.$close();
-        }
-
-        function startTimer() {
-            timer = $timeout(function () {
-                $timeout.cancel(timer);
-                $scope.errorMessage = '';
-                $scope.updateStatus = false;
-                
-            }, 1000);
-        }
 
     };
 
     EventEditController.$inject = ["$rootScope", "$scope", "$routeParams",
-                                      "$timeout", "dataService", "modalService", "validationService"];
+                                       "dataService", "modalService", "validationService", "appConfig"];
 
     angular.module("ticketsApp").controller("EventEditController", EventEditController);
 

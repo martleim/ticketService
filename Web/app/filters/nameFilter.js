@@ -9,7 +9,7 @@
             name = (name)?name.toLowerCase():"";
             for (var i = 0; i < elements.length; i++) {
                 var delivery = elements[i];
-                if ((delivery.name.toLowerCase().indexOf(name) > -1 || name=="") ) {
+                if ((delivery.Name.toLowerCase().indexOf(name) > -1 || name=="") ) {
 
                     matches.push(delivery);
                 }

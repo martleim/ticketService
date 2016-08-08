@@ -1,4 +1,3 @@
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Debug\Tickets.API.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\ApplicationInsights.config
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\roslyn\csc.exe
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -28,8 +27,10 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Newtonsof
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\System.Net.Http.Formatting.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\System.Web.Http.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\System.Web.Http.WebHost.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Model.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Proxy.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Common.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Model.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Proxy.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Intertech.Validation.AA.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Microsoft.AI.DependencyCollector.xml
@@ -43,7 +44,6 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\System.Ne
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\System.Web.Http.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\System.Web.Http.WebHost.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Common.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Debug\Tickets.API.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Debug\Tickets.API.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Debug\Tickets.API.pdb
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Model.dll
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.Model.pdb

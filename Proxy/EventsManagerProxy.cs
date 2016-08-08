@@ -41,17 +41,22 @@ namespace Tickets.Proxy
             return new EventsServiceClient().GetAllSessionsTickets(sessionId);
         }
 
-        public IList<Event> GetSingleEvent(int eventId)
+        public IList<Ticket> GetAllEventTickets(int sessionId)
+        {
+            return new EventsServiceClient().GetAllEventTickets(sessionId);
+        }
+
+        public Event GetSingleEvent(int eventId)
         {
             return new EventsServiceClient().GetSingleEvent(eventId);
         }
 
-        public IList<Session> GetSingleSession(int sessionId)
+        public Session GetSingleSession(int sessionId)
         {
             return new EventsServiceClient().GetSingleSession(sessionId);
         }
 
-        public IList<Ticket> GetSingleTicket(int ticketId)
+        public Ticket GetSingleTicket(int ticketId)
         {
             return new EventsServiceClient().GetSingleTicket(ticketId);
         }

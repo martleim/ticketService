@@ -1,7 +1,7 @@
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\bin\Debug\Tickets.Common.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\bin\Debug\Tickets.Common.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\bin\Debug\Tickets.Model.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\bin\Debug\Tickets.Model.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\obj\Debug\Tickets.Common.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\obj\Debug\Tickets.Common.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\obj\Debug\Tickets.Common.pdb
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\bin\Debug\Tickets.Model.dll
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Common\bin\Debug\Tickets.Model.pdb

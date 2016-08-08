@@ -13,6 +13,7 @@ namespace Tickets.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select EventsService.svc or EventsService.svc.cs at the Solution Explorer and start debugging.
     public class EventsService : IEventsService
     {
+
         public void AddEvent(Event e)
         {
             new EventBusinessManager().AddEvent(e);
@@ -28,32 +29,39 @@ namespace Tickets.Services
             new EventBusinessManager().AddTicket(ticket);
         }
 
-        public IList<Event> GetSingleEvent(int eventId)
+        public Event GetSingleEvent(int eventId)
         {
             return new EventBusinessManager().GetSingleEvent(eventId);
         }
 
-        public IList<Event> GetAllEvents()
+        public List<Event> GetAllEvents()
         {
-            return new EventBusinessManager().GetAllEvents();
+            var ret = new EventBusinessManager().GetAllEvents().Cast<Event>().ToList();
+            return ret;
         }
 
-        public IList<Session> GetAllEventSessions(int eventId)
+        public List<Session> GetAllEventSessions(int eventId)
         {
-            return new EventBusinessManager().GetAllEventSessions(eventId);
+            var ret = new EventBusinessManager().GetAllEventSessions(eventId).ToList();
+            return ret;
         }
 
-        public IList<Ticket> GetAllSessionsTickets(int sessionId)
+        public List<Ticket> GetAllSessionsTickets(int sessionId)
         {
-            return new EventBusinessManager().GetAllSessionsTickets(sessionId);
+            return new EventBusinessManager().GetAllSessionsTickets(sessionId).ToList();
         }
 
-        public IList<Session> GetSingleSession(int sessionId)
+        public List<Ticket> GetAllEventTickets(int eventId)
+        {
+            return new EventBusinessManager().GetAllEventTickets(eventId).ToList();
+        }
+
+        public Session GetSingleSession(int sessionId)
         {
             return new EventBusinessManager().GetSingleSession(sessionId);
         }
 
-        public IList<Ticket> GetSingleTicket(int ticketId)
+        public Ticket GetSingleTicket(int ticketId)
         {
             return new EventBusinessManager().GetSingleTicket(ticketId);
         }

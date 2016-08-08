@@ -16,10 +16,10 @@ namespace Tickets.Proxy.EventsServiceReference {
     public interface IEventsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleEvent", ReplyAction="http://tempuri.org/IEventsService/GetSingleEventResponse")]
-        Tickets.Model.Event[] GetSingleEvent(int eventId);
+        Tickets.Model.Event GetSingleEvent(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleEvent", ReplyAction="http://tempuri.org/IEventsService/GetSingleEventResponse")]
-        System.Threading.Tasks.Task<Tickets.Model.Event[]> GetSingleEventAsync(int eventId);
+        System.Threading.Tasks.Task<Tickets.Model.Event> GetSingleEventAsync(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetAllEvents", ReplyAction="http://tempuri.org/IEventsService/GetAllEventsResponse")]
         Tickets.Model.Event[] GetAllEvents();
@@ -51,11 +51,17 @@ namespace Tickets.Proxy.EventsServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetAllEventSessions", ReplyAction="http://tempuri.org/IEventsService/GetAllEventSessionsResponse")]
         System.Threading.Tasks.Task<Tickets.Model.Session[]> GetAllEventSessionsAsync(int eventId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleSession", ReplyAction="http://tempuri.org/IEventsService/GetSingleSessionResponse")]
-        Tickets.Model.Session[] GetSingleSession(int sessionId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetAllEventTickets", ReplyAction="http://tempuri.org/IEventsService/GetAllEventTicketsResponse")]
+        Tickets.Model.Ticket[] GetAllEventTickets(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetAllEventTickets", ReplyAction="http://tempuri.org/IEventsService/GetAllEventTicketsResponse")]
+        System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetAllEventTicketsAsync(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleSession", ReplyAction="http://tempuri.org/IEventsService/GetSingleSessionResponse")]
-        System.Threading.Tasks.Task<Tickets.Model.Session[]> GetSingleSessionAsync(int sessionId);
+        Tickets.Model.Session GetSingleSession(int sessionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleSession", ReplyAction="http://tempuri.org/IEventsService/GetSingleSessionResponse")]
+        System.Threading.Tasks.Task<Tickets.Model.Session> GetSingleSessionAsync(int sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/AddSession", ReplyAction="http://tempuri.org/IEventsService/AddSessionResponse")]
         void AddSession(Tickets.Model.Session session);
@@ -82,10 +88,10 @@ namespace Tickets.Proxy.EventsServiceReference {
         System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetAllSessionsTicketsAsync(int sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleTicket", ReplyAction="http://tempuri.org/IEventsService/GetSingleTicketResponse")]
-        Tickets.Model.Ticket[] GetSingleTicket(int ticketId);
+        Tickets.Model.Ticket GetSingleTicket(int ticketId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/GetSingleTicket", ReplyAction="http://tempuri.org/IEventsService/GetSingleTicketResponse")]
-        System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetSingleTicketAsync(int ticketId);
+        System.Threading.Tasks.Task<Tickets.Model.Ticket> GetSingleTicketAsync(int ticketId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventsService/AddTicket", ReplyAction="http://tempuri.org/IEventsService/AddTicketResponse")]
         void AddTicket(Tickets.Model.Ticket ticket);
@@ -133,11 +139,11 @@ namespace Tickets.Proxy.EventsServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Tickets.Model.Event[] GetSingleEvent(int eventId) {
+        public Tickets.Model.Event GetSingleEvent(int eventId) {
             return base.Channel.GetSingleEvent(eventId);
         }
         
-        public System.Threading.Tasks.Task<Tickets.Model.Event[]> GetSingleEventAsync(int eventId) {
+        public System.Threading.Tasks.Task<Tickets.Model.Event> GetSingleEventAsync(int eventId) {
             return base.Channel.GetSingleEventAsync(eventId);
         }
         
@@ -181,11 +187,19 @@ namespace Tickets.Proxy.EventsServiceReference {
             return base.Channel.GetAllEventSessionsAsync(eventId);
         }
         
-        public Tickets.Model.Session[] GetSingleSession(int sessionId) {
+        public Tickets.Model.Ticket[] GetAllEventTickets(int eventId) {
+            return base.Channel.GetAllEventTickets(eventId);
+        }
+        
+        public System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetAllEventTicketsAsync(int eventId) {
+            return base.Channel.GetAllEventTicketsAsync(eventId);
+        }
+        
+        public Tickets.Model.Session GetSingleSession(int sessionId) {
             return base.Channel.GetSingleSession(sessionId);
         }
         
-        public System.Threading.Tasks.Task<Tickets.Model.Session[]> GetSingleSessionAsync(int sessionId) {
+        public System.Threading.Tasks.Task<Tickets.Model.Session> GetSingleSessionAsync(int sessionId) {
             return base.Channel.GetSingleSessionAsync(sessionId);
         }
         
@@ -221,11 +235,11 @@ namespace Tickets.Proxy.EventsServiceReference {
             return base.Channel.GetAllSessionsTicketsAsync(sessionId);
         }
         
-        public Tickets.Model.Ticket[] GetSingleTicket(int ticketId) {
+        public Tickets.Model.Ticket GetSingleTicket(int ticketId) {
             return base.Channel.GetSingleTicket(ticketId);
         }
         
-        public System.Threading.Tasks.Task<Tickets.Model.Ticket[]> GetSingleTicketAsync(int ticketId) {
+        public System.Threading.Tasks.Task<Tickets.Model.Ticket> GetSingleTicketAsync(int ticketId) {
             return base.Channel.GetSingleTicketAsync(ticketId);
         }
         

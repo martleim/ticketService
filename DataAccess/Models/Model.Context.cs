@@ -9,16 +9,17 @@
 
 namespace Tickets.DataAccess.Models
 {
+    using Model;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using Tickets.Model;
-    
+
     public partial class ticketsEntities : DbContext
     {
         public ticketsEntities()
             : base("name=ticketsEntities")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

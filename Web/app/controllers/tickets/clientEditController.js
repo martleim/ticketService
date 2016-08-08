@@ -1,6 +1,6 @@
 (function () {
 
-    var ClientEditController = function ($rootScope, $scope, $location, $routeParams, $timeout, dataService, modalService) {
+    var ClientEditController = function ($rootScope, $scope, $location, $routeParams, dataService, modalService) {
 
         var clientName = ($routeParams.clientName) ? $routeParams.clientName : "",
             timer,
@@ -21,7 +21,7 @@
             if ($scope.editForm.$valid) {
                 var clientToSave = angular.copy($scope.client);
                 
-                processSuccess();
+                
             }
         };
 
@@ -102,28 +102,12 @@
             return;
         }
 
-        function processSuccess() {
-            $scope.editForm.$dirty = false;
-            $scope.updateStatus = true;
-            $scope.title = "Editar";
-            $scope.buttonText = "Guardar";
-            $scope.edit=true;
-            startTimer();
-        }
-
-        function startTimer() {
-            timer = $timeout(function () {
-                $timeout.cancel(timer);
-                $scope.errorMessage = '';
-                $scope.updateStatus = false;
-                $scope.navigate('/clients');
-            }, 1000);
-        }
+        
 
     };
 
     ClientEditController.$inject = ["$rootScope", "$scope", "$location", "$routeParams",
-                                      "$timeout", "dataService", "modalService"];
+                                       "dataService", "modalService"];
 
     angular.module("ticketsApp").controller("ClientEditController", ClientEditController);
 
