@@ -1,0 +1,62 @@
+﻿<div class="view modalContainer">
+    <div class="container" ng-controller="SessionEditController">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span>Session: {{name}}</h3>
+        </header>
+        <div ng-if="validationLoaded">
+            <div aa-configured-form validation-config="formconfig" class="form-horizontal" ng-form="sessionEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Event Data</h4>
+                        <br />
+                    </div>
+                </div>
+
+                <input aa-field-group="model.Name" />
+                <!--input aa-field-group="model.DateStart" /-->
+                <datetimepicker aa-field-group="model.DateStart" min-date="minDate" hour-step="hourStep"
+                                minute-step="minuteStep" ng-model="model.DateStart" show-meridian="showMeridian"
+                                date-format="dd-MMM-yyyy" date-options="dateOptions"
+                                date-disabled="disabled(date, mode)"
+                                datepicker-append-to-body="false"
+                                readonly-date="false"
+                                hidden-time="false"
+                                hidden-date="false"
+                                name="datetimepicker"
+                                show-spinners="false"
+                                readonly-time="false"
+                                date-opened="dateOpened">
+                    <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+                </datetimepicker>
+
+                <datetimepicker aa-field-group="model.DateEnd" min-date="minDate" hour-step="hourStep"
+                                minute-step="minuteStep" ng-model="model.DateEnd" show-meridian="showMeridian"
+                                date-format="dd-MMM-yyyy" date-options="dateOptions"
+                                date-disabled="disabled(date, mode)"
+                                datepicker-append-to-body="false"
+                                readonly-date="false"
+                                hidden-time="false"
+                                hidden-date="false"
+                                name="datetimepicker"
+                                show-spinners="false"
+                                readonly-time="false"
+                                date-opened="dateOpened">
+                    <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+                </datetimepicker>
+
+
+                <textarea aa-field-group="model.Description"></textarea>
+                <input type="number" aa-field-group="model.Price"></input>
+                <input type="number" aa-field-group="model.SpacesAvailable"></input>
+
+                <select aa-field-group="model.TicketIds" multiple>
+                    <option ng-repeat="ticket in EventTickets" value="{{ticket.Id}}">{{ticket.Name}}</option>
+                </select>
+
+                <button ng-click="$close()" type="submit" class="btn btn-secondary">Cancel</button>
+                <button ng-click="save()" type="submit" class="btn btn-primary" ng-disabled="!sessionEdit.$valid ">Create</button>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="ticketsApp">
+<head>
+    <title>Tickets App</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JS externos -->
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <!-- CSS locales -->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body data-ng-cloak="">
+    <header class="navbar navbar-inner navbar-fixed-top" ng-controller="navBarController">
+        <ul class="nav navbar-nav navBarPadding">
+            <li ng-class="{ active: isActive('/events')}"><a href="#/events">Events</a></li>
+            <li ng-class="{ active: isActive('/tickets')}"><a href="#/clients">Tickets Sell</a></li>
+        </ul>
+    </header>
+
+    <div data-ng-view="" id="ng-view"></div>
+
+    <div id="footer" class="navbar navbar-inner navbar-fixed-bottom"></div>
+    <!-- CONFIG -->
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-animate.min.js"></script>
+    <!--script src="scripts/angular-mocks.js"></script-->
+    <script src="scripts/angular-agility.min.js"></script>
+
+
+    <!-- JS app -->
+    <script src="app/config.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/eventsService.js"></script>
+    <script src="app/services/ticketsService.js"></script>
+    <script src="app/services/dataService.js"></script>
+    <script src="app/services/modalService.js"></script>
+    <script src="app/services/validationService.js"></script>
+    <!--script src="app/services/dataMocksService.js"></script-->
+    <script src="app/controllers/events/eventEditController.js"></script>
+    <script src="app/controllers/events/ticketEditController.js"></script>
+    <script src="app/controllers/events/eventsController.js"></script>
+    <script src="app/controllers/events/sessionsController.js"></script>
+    <script src="app/controllers/events/sessionEditController.js"></script>
+    <script src="app/controllers/tickets/clientEditController.js"></script>
+    <script src="app/controllers/tickets/ticketsController.js"></script>
+    <script src="app/directives/grid.js"></script>
+    <script src="app/directives/dateTimePicker.js"></script>
+    <script src="app/filters/nameFilter.js"></script>
+
+</body>
+</html>

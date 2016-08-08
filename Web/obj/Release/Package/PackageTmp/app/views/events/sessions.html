@@ -1,0 +1,41 @@
+﻿<div class="view modalContainer">
+
+    <div class="container" ng-controller="SessionController">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span>Session: {{name}}</h3>
+        </header>
+
+            <div class="form-horizontal" ng-if="sessionsLoaded && ticketsLoaded">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Sessions</h4>
+                        <div class="gridContainer">
+                            <table class="table table-striped table-bordered table-hover ng-scope">
+                                <thead class="table table-striped table-bordered table-hover ng-scope">
+                                    <tr>
+                                        <th class="sorted ng-binding ng-scope">Name</th>
+                                        <th class="sorted ng-binding ng-scope">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="session in model.Session" ng-class-odd='odd' ng-class-even='even' bn-log-dom-creation>
+                                        <td>{{session.Name}}</td>
+                                        <td>{{session.Description}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button ng-click="addSession()" type="submit" class="btn btn-primary">Add new session</button>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <button ng-click="$close()" type="submit" class="btn btn-secondary">Close</button>
+            <!--button ng-click="save()" type="submit" class="btn btn-primary">Create</button-->
+            <br />
+    </div>
+
+</div>
+
+
+</div>

@@ -112,6 +112,7 @@
     <Content Include="app\services\clients.json" />
     <Content Include="app\services\deliveries.json" />
     <Content Include="app\services\mapElements.json" />
+    <None Include="Properties\PublishProfiles\TicketsAppClient.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

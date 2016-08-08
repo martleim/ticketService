@@ -1,0 +1,58 @@
+<div class="view modalContainer">
+
+    <div class="container" ng-controller="EventEditController">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span>Event: {{name}}</h3>
+        </header>
+        <div ng-if="validationLoaded">
+            <div aa-configured-form validation-config="formconfig" class="form-horizontal" ng-form="eventEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Event Data</h4>
+                        <br />
+                    </div>
+                </div>
+
+                <input aa-field-group="model.Name" />
+                <textarea aa-field-group="model.Description"></textarea>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Tickets</h4>
+                        <br />
+                    </div>
+                </div>
+                <div class="gridContainer">
+                    <table class="table table-striped table-bordered table-hover ng-scope">
+                        <thead class="table table-striped table-bordered table-hover ng-scope">
+                            <tr>
+                                <th class="sorted ng-binding ng-scope">Name</th>
+                                <th class="sorted ng-binding ng-scope">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ticket in model.Ticket" ng-class-odd='odd' ng-class-even='even' bn-log-dom-creation>
+                                <td>{{ticket.Name}}</td>
+                                <td>{{ticket.Description}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div><div style="position: relative;height: 50px;">
+                          <button ng-click="addTicket()" type="submit" class="btn btn-primary">Add new ticket</button>
+                </div>
+                <br />
+                <br />
+                <div>
+            </div>
+            <button ng-click="$close()" type="submit" class="btn btn-secondary">Cancel</button>
+            <button ng-click="save()" type="submit" class="btn btn-primary" ng-disabled="!eventEdit.$valid || model.Ticket.length==0 || model.Session.length==0">Create</button>
+            <br />
+        </div>
+        </div>
+
+    </div>
+
+
+</div>
