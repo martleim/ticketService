@@ -24,27 +24,27 @@ namespace Tickets.Business
             _eventRepository = eventRepository;
         }
 
-        public void AddUser(params User[] users)
+        public void AddUser(params AspNetUser[] users)
         {
             throw new NotImplementedException();
         }
 
-        public IList<User> GetAllUsers()
+        public IList<AspNetUser> GetAllUsers()
         {
             throw new NotImplementedException();
         }
 
-        public User GetUserByEmail(string email)
+        public AspNetUser GetUserByEmail(string email)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveUser(params User[] users)
+        public void RemoveUser(params AspNetUser[] users)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateUser(params User[] users)
+        public void UpdateUser(params AspNetUser[] users)
         {
             throw new NotImplementedException();
         }

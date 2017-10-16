@@ -16,34 +16,34 @@ namespace Tickets.Proxy.SecurityServiceReference {
     public interface ISecurityService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/GetAllUsers", ReplyAction="http://tempuri.org/ISecurityService/GetAllUsersResponse")]
-        Tickets.Model.User[] GetAllUsers();
+        Tickets.Model.AspNetUser[] GetAllUsers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/GetAllUsers", ReplyAction="http://tempuri.org/ISecurityService/GetAllUsersResponse")]
-        System.Threading.Tasks.Task<Tickets.Model.User[]> GetAllUsersAsync();
+        System.Threading.Tasks.Task<Tickets.Model.AspNetUser[]> GetAllUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/GetUserByEmail", ReplyAction="http://tempuri.org/ISecurityService/GetUserByEmailResponse")]
-        Tickets.Model.User GetUserByEmail(string email);
+        Tickets.Model.AspNetUser GetUserByEmail(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/GetUserByEmail", ReplyAction="http://tempuri.org/ISecurityService/GetUserByEmailResponse")]
-        System.Threading.Tasks.Task<Tickets.Model.User> GetUserByEmailAsync(string email);
+        System.Threading.Tasks.Task<Tickets.Model.AspNetUser> GetUserByEmailAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/AddUser", ReplyAction="http://tempuri.org/ISecurityService/AddUserResponse")]
-        void AddUser(Tickets.Model.User user);
+        void AddUser(Tickets.Model.AspNetUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/AddUser", ReplyAction="http://tempuri.org/ISecurityService/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(Tickets.Model.User user);
+        System.Threading.Tasks.Task AddUserAsync(Tickets.Model.AspNetUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/UpdateUser", ReplyAction="http://tempuri.org/ISecurityService/UpdateUserResponse")]
-        void UpdateUser(Tickets.Model.User user);
+        void UpdateUser(Tickets.Model.AspNetUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/UpdateUser", ReplyAction="http://tempuri.org/ISecurityService/UpdateUserResponse")]
-        System.Threading.Tasks.Task UpdateUserAsync(Tickets.Model.User user);
+        System.Threading.Tasks.Task UpdateUserAsync(Tickets.Model.AspNetUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/RemoveUser", ReplyAction="http://tempuri.org/ISecurityService/RemoveUserResponse")]
-        void RemoveUser(Tickets.Model.User user);
+        void RemoveUser(Tickets.Model.AspNetUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/RemoveUser", ReplyAction="http://tempuri.org/ISecurityService/RemoveUserResponse")]
-        System.Threading.Tasks.Task RemoveUserAsync(Tickets.Model.User user);
+        System.Threading.Tasks.Task RemoveUserAsync(Tickets.Model.AspNetUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISecurityService/FindUser", ReplyAction="http://tempuri.org/ISecurityService/FindUserResponse")]
         Tickets.Model.AspNetUser FindUser(string userName, string password);
@@ -85,43 +85,43 @@ namespace Tickets.Proxy.SecurityServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Tickets.Model.User[] GetAllUsers() {
+        public Tickets.Model.AspNetUser[] GetAllUsers() {
             return base.Channel.GetAllUsers();
         }
         
-        public System.Threading.Tasks.Task<Tickets.Model.User[]> GetAllUsersAsync() {
+        public System.Threading.Tasks.Task<Tickets.Model.AspNetUser[]> GetAllUsersAsync() {
             return base.Channel.GetAllUsersAsync();
         }
         
-        public Tickets.Model.User GetUserByEmail(string email) {
+        public Tickets.Model.AspNetUser GetUserByEmail(string email) {
             return base.Channel.GetUserByEmail(email);
         }
         
-        public System.Threading.Tasks.Task<Tickets.Model.User> GetUserByEmailAsync(string email) {
+        public System.Threading.Tasks.Task<Tickets.Model.AspNetUser> GetUserByEmailAsync(string email) {
             return base.Channel.GetUserByEmailAsync(email);
         }
         
-        public void AddUser(Tickets.Model.User user) {
+        public void AddUser(Tickets.Model.AspNetUser user) {
             base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(Tickets.Model.User user) {
+        public System.Threading.Tasks.Task AddUserAsync(Tickets.Model.AspNetUser user) {
             return base.Channel.AddUserAsync(user);
         }
         
-        public void UpdateUser(Tickets.Model.User user) {
+        public void UpdateUser(Tickets.Model.AspNetUser user) {
             base.Channel.UpdateUser(user);
         }
         
-        public System.Threading.Tasks.Task UpdateUserAsync(Tickets.Model.User user) {
+        public System.Threading.Tasks.Task UpdateUserAsync(Tickets.Model.AspNetUser user) {
             return base.Channel.UpdateUserAsync(user);
         }
         
-        public void RemoveUser(Tickets.Model.User user) {
+        public void RemoveUser(Tickets.Model.AspNetUser user) {
             base.Channel.RemoveUser(user);
         }
         
-        public System.Threading.Tasks.Task RemoveUserAsync(Tickets.Model.User user) {
+        public System.Threading.Tasks.Task RemoveUserAsync(Tickets.Model.AspNetUser user) {
             return base.Channel.RemoveUserAsync(user);
         }
         

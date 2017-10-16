@@ -13,19 +13,19 @@ namespace Tickets.Services
     public interface ISecurityService
     {
         [OperationContract]
-        IList<User> GetAllUsers();
+        IList<AspNetUser> GetAllUsers();
 
         [OperationContract]
-        User GetUserByEmail(string email);
+        AspNetUser GetUserByEmail(string email);
 
         [OperationContract]
-        void AddUser(User user);
+        void AddUser(AspNetUser user);
 
         [OperationContract]
-        void UpdateUser(User user);
+        void UpdateUser(AspNetUser user);
 
         [OperationContract]
-        void RemoveUser(User user);
+        void RemoveUser(AspNetUser user);
 
         [OperationContract]
         AspNetUser FindUser(string userName, string password);

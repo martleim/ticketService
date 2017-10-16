@@ -4,4 +4,3 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Tickets.Helpers\o
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Tickets.Helpers\obj\Debug\Tickets.Helpers.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Tickets.Helpers\bin\Debug\log4net.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Tickets.Helpers\bin\Debug\log4net.xml
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Tickets.Helpers\obj\Debug\Tickets.Helpers.csprojResolveAssemblyReference.cache

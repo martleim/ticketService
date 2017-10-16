@@ -14,29 +14,29 @@ namespace Tickets.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select SecurityService.svc or SecurityService.svc.cs at the Solution Explorer and start debugging.
     public class SecurityService : ISecurityService
     {
-        public void AddUser(User user)
+        public void AddUser(AspNetUser user)
         {
-            new SecurityBusinessManager().AddUser(new User[] { user });
+            new SecurityBusinessManager().AddUser(new AspNetUser[] { user });
         }
 
-        public IList<User> GetAllUsers()
+        public IList<AspNetUser> GetAllUsers()
         {
             return new SecurityBusinessManager().GetAllUsers();
         }
 
-        public User GetUserByEmail(string email)
+        public AspNetUser GetUserByEmail(string email)
         {
             return new SecurityBusinessManager().GetUserByEmail(email);
         }
 
-        public void RemoveUser(User user)
+        public void RemoveUser(AspNetUser user)
         {
-            new SecurityBusinessManager().RemoveUser(new User[] { user });
+            new SecurityBusinessManager().RemoveUser(new AspNetUser[] { user });
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(AspNetUser user)
         {
-            new SecurityBusinessManager().UpdateUser(new User[] { user });
+            new SecurityBusinessManager().UpdateUser(new AspNetUser[] { user });
         }
 
         public AspNetUser FindUser(string userName, string password)

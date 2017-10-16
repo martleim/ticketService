@@ -21,6 +21,15 @@ namespace Tickets.Business
             _eventRepository = new EventRepository();
             _sessionRepository = new SessionRepository();
             _ticketRepository = new TicketRepository();
+
+            _eventRepository.ProxyCreationEnabled = false;
+            _eventRepository.LazyLoadingEnabled = false;
+
+            _sessionRepository.ProxyCreationEnabled = false;
+            _sessionRepository.LazyLoadingEnabled = false;
+
+            _ticketRepository.ProxyCreationEnabled = false;
+            _ticketRepository.LazyLoadingEnabled = false;
         }
 
 

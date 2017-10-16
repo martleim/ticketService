@@ -55,7 +55,6 @@
     <Compile Include="Event.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PartialModel.cs" />
     <Compile Include="ModelMetadata.cs" />
     <Compile Include="Model.cs">
       <AutoGen>True</AutoGen>

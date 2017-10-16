@@ -133,7 +133,6 @@ namespace Tickets.API.Controllers
             ProxyManager.EventsManager.AddTicket(e);
             return Ok();
         }
-        
 
     }
 }
