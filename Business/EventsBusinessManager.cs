@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using Tickets.DataAccess;
 using Tickets.Common;
 using System;
+using Tickets.DataAccess.PartialRepositories;
+using Tickets.DataAccess.Contracts;
 
 namespace Tickets.Business
 {
-    public class EventBusinessManager : IEventsManager
+    public class EventBusinessManager : BaseManager, IEventsManager
     {
 
-        private readonly IEventRepository _eventRepository;
-        private readonly ISessionRepository _sessionRepository;
-        private readonly ITicketRepository _ticketRepository;
+        private readonly EventRepository _eventRepository;
+        private readonly SessionRepository _sessionRepository;
+        private readonly TicketRepository _ticketRepository;
 
 
         public EventBusinessManager()
@@ -21,15 +23,6 @@ namespace Tickets.Business
             _ticketRepository = new TicketRepository();
         }
 
-        public EventBusinessManager(IEventRepository eventRepository,
-            ISessionRepository sessionRepository,
-            ITicketRepository ticketRepository)
-        {
-            _eventRepository = eventRepository;
-            _sessionRepository = sessionRepository;
-            _ticketRepository = ticketRepository;
-
-        }
 
         public void AddEvent(params Event[] events)
         {
@@ -52,15 +45,15 @@ namespace Tickets.Business
         {
             foreach (Session s in sessions)
             {
-                var tickets = s.Ticket;
-                s.Ticket = new HashSet<Ticket>();
+                var tickets = s.TicketSale;
+                /*s.Ticket = new HashSet<Ticket>();
                 _sessionRepository.Add(sessions);
                 List<Ticket> toAdd = new List<Ticket>(tickets);
                 foreach (Ticket t in toAdd)
                 {
                     t.SessionId = s.Id;
                 }
-                _ticketRepository.Update(toAdd.ToArray());
+                _ticketRepository.Update(toAdd.ToArray());*/
             }
         }
 

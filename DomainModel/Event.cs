@@ -11,7 +11,10 @@ namespace Tickets.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.ComponentModel.DataAnnotations;
     
+    [DataContract]
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,13 +24,24 @@ namespace Tickets.Model
             this.Ticket = new HashSet<Ticket>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        
+    	[Key()]
+    	[DataMember(Name = "Id")]
+    	public int Id { get; set; }
+        
+    	[Required(ErrorMessage = "Name is required.")]
+    	[DataMember(Name = "Name", IsRequired = true)]
+    	public string Name { get; set; }
+        
+    	[Required(ErrorMessage = "Description is required.")]
+    	[DataMember(Name = "Description", IsRequired = true)]
+    	public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Session> Session { get; set; }
+        [DataMember(Name = "Session")]
+    	public virtual ICollection<Session> Session { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Ticket { get; set; }
+        [DataMember(Name = "Ticket")]
+    	public virtual ICollection<Ticket> Ticket { get; set; }
     }
 }

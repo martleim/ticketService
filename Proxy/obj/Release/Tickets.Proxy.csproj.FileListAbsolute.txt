@@ -5,6 +5,5 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\bin\Release
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\bin\Release\Tickets.Model.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\bin\Release\Tickets.Common.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\bin\Release\Tickets.Model.pdb
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\obj\Release\Tickets.Proxy.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\obj\Release\Tickets.Proxy.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Proxy\obj\Release\Tickets.Proxy.pdb

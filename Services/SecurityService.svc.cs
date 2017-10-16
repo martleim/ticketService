@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
 using Tickets.Business;
 using Tickets.Model;
 
@@ -36,6 +37,28 @@ namespace Tickets.Services
         public void UpdateUser(User user)
         {
             new SecurityBusinessManager().UpdateUser(new User[] { user });
+        }
+
+        public AspNetUser FindUser(string userName, string password)
+        {
+            return FindUserAsync(userName, password).Result;
+        }
+
+        private async Task<AspNetUser> FindUserAsync(string userName, string password)
+        {
+            using (AspNetUserManager manager = new AspNetUserManager())
+            {
+
+                return await manager.FindUser(userName, password);
+            }
+        }
+
+        public AspNetUser GetByUserName(string username)
+        {
+            using (AspNetUserManager manager = new AspNetUserManager())
+            {
+                return manager.GetByUserName(username);
+            }
         }
     }
 }

@@ -142,6 +142,10 @@
       <Project>{b68ff4fb-6ff4-464c-9d09-d6d9f0284ec4}</Project>
       <Name>Tickets.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Tickets.Common.csproj">
+      <Project>{ee69623e-a2c1-4685-80c0-7f5dc672e4d5}</Project>
+      <Name>Tickets.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainModel\Tickets.Model.csproj">
       <Project>{b647db4c-9fa8-41c5-a733-466b38b683c5}</Project>
       <Name>Tickets.Model</Name>

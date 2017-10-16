@@ -47,3 +47,6 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\Tickets.C
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Release\Tickets.API.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Release\Tickets.API.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\obj\Release\Tickets.API.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\OAuth2.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\RestSharp.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\API\bin\RestSharp.xml

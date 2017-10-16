@@ -2,7 +2,7 @@
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
  output extension=".cs"#><#
 
-const string inputFile = @"../DataAccess/Models/Model.edmx";
+const string inputFile = @"../DataModel/DataModel.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
@@ -24,6 +24,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false)#>
+[DataContract]
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 {
 <#
@@ -119,6 +120,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false, includeCollections: false)#>
+[DataContract]
 <#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>
 {
 <#
@@ -283,20 +285,48 @@ public class CodeStringGenerator
 
     public string Property(EdmProperty edmProperty)
     {
-        return string.Format(
+		var endType = _typeMapper.GetTypeName(edmProperty.TypeUsage);
+		if(endType=="System.DateTime")
+			endType+="?";
+
+		string annotationNamespace = "http://schemas.microsoft.com/ado/2009/02/edm/annotation";
+
+		MetadataProperty storeGeneratedPatternProperty = null;
+		edmProperty.MetadataProperties.TryGetValue(annotationNamespace + ":StoreGeneratedPattern", false, out storeGeneratedPatternProperty);
+		bool IsIdentity = storeGeneratedPatternProperty != null && storeGeneratedPatternProperty.Value.ToString() == "Identity";
+
+		string ret =  Environment.NewLine +"\t" + (_ef.IsKey(edmProperty)?
+						("[Key()]"+Environment.NewLine+"\t"):"");
+		
+		if(edmProperty.TypeUsage.Facets.Contains("MaxLength")){
+			string maxLength = edmProperty.TypeUsage.Facets["MaxLength"].Value.ToString();
+			ret+=(edmProperty.TypeUsage.EdmType.Name == "String" && maxLength!="Max")?
+						"[StringLength("+maxLength+", ErrorMessage = \""+_code.Escape(edmProperty)+" has a maximum length of "+maxLength+".\")]"+Environment.NewLine+"\t":"";
+		}
+		
+		ret+=((!edmProperty.Nullable && !IsIdentity)?"[Required(ErrorMessage = \""+_code.Escape(edmProperty)+" is required.\")]"+Environment.NewLine+"\t":"");
+		ret+="[DataMember(Name = \""+_code.Escape(edmProperty) + "\""+
+		((!edmProperty.Nullable && !IsIdentity)?", IsRequired = true":"")+
+		")]"+Environment.NewLine+"\t";
+		
+        ret += string.Format(
             CultureInfo.InvariantCulture,
             "{0} {1} {2} {{ {3}get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
-            _typeMapper.GetTypeName(edmProperty.TypeUsage),
+            endType,
             _code.Escape(edmProperty),
             _code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
             _code.SpaceAfter(Accessibility.ForSetter(edmProperty)));
+		return ret;
     }
 
     public string NavigationProperty(NavigationProperty navProp)
     {
         var endType = _typeMapper.GetTypeName(navProp.ToEndMember.GetEntityType());
-        return string.Format(
+		
+		string ret="[DataMember(Name = \""+_code.Escape(navProp)+"\")]"+Environment.NewLine+"\t";
+
+		ret+=string.Format(
             CultureInfo.InvariantCulture,
             "{0} {1} {2} {{ {3}get; {4}set; }}",
             AccessibilityAndVirtual(Accessibility.ForNavigationProperty(navProp)),
@@ -304,6 +334,7 @@ public class CodeStringGenerator
             _code.Escape(navProp),
             _code.SpaceAfter(Accessibility.ForGetter(navProp)),
             _code.SpaceAfter(Accessibility.ForSetter(navProp)));
+		return ret;
     }
     
     public string AccessibilityAndVirtual(string accessibility)
@@ -428,7 +459,7 @@ public class CodeStringGenerator
                 "{0}using System;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
-                includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
+                includeCollections ? (Environment.NewLine + "using System.Collections.Generic;" + Environment.NewLine + "using System.Runtime.Serialization;" + Environment.NewLine + "using System.ComponentModel.DataAnnotations;") : "",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

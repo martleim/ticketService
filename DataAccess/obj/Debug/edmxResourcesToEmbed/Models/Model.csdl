@@ -1,120 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ticketsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="Binary" MaxLength="64" FixedLength="true" Nullable="false" />
-    <NavigationProperty Name="Transaction" Relationship="ticketsModel.UserTransactions" FromRole="User" ToRole="Transaction" />
-  </EntityType>
   <EntityContainer Name="ticketsEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="UserSet" EntityType="Self.User" />
-    <EntitySet Name="EventSet" EntityType="ticketsModel.Event" />
-    <EntitySet Name="SessionSet" EntityType="ticketsModel.Session" />
-    <EntitySet Name="TicketSet" EntityType="ticketsModel.Ticket" />
-    <EntitySet Name="TransactionSet" EntityType="ticketsModel.Transaction" />
-    <AssociationSet Name="EventSession" Association="ticketsModel.EventSession">
-      <End Role="Event" EntitySet="EventSet" />
-      <End Role="Session" EntitySet="SessionSet" />
+    <EntitySet Name="AspNetUser" EntityType="ticketsModel.AspNetUser" />
+    <EntitySet Name="AspNetUserClaim" EntityType="ticketsModel.AspNetUserClaim" />
+    <EntitySet Name="EventSet" EntityType="ticketsModel.EventSet" />
+    <EntitySet Name="SessionSet" EntityType="ticketsModel.SessionSet" />
+    <EntitySet Name="TicketSaleSet" EntityType="ticketsModel.TicketSaleSet" />
+    <EntitySet Name="TicketSet" EntityType="ticketsModel.TicketSet" />
+    <EntitySet Name="TransactionSet" EntityType="ticketsModel.TransactionSet" />
+    <AssociationSet Name="AspNetUserClaim_fk0" Association="ticketsModel.AspNetUserClaim_fk0">
+      <End Role="AspNetUser" EntitySet="AspNetUser" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaim" />
     </AssociationSet>
-    <AssociationSet Name="UserTransactions" Association="ticketsModel.UserTransactions">
-      <End Role="User" EntitySet="UserSet" />
-      <End Role="Transaction" EntitySet="TransactionSet" />
+    <AssociationSet Name="FK_UserTransactions" Association="ticketsModel.FK_UserTransactions">
+      <End Role="AspNetUser" EntitySet="AspNetUser" />
+      <End Role="TransactionSet" EntitySet="TransactionSet" />
     </AssociationSet>
-    <EntitySet Name="TicketSaleSet" EntityType="ticketsModel.TicketSale" />
-    <AssociationSet Name="EventTicket" Association="ticketsModel.EventTicket">
-      <End Role="Event" EntitySet="EventSet" />
-      <End Role="Ticket" EntitySet="TicketSet" />
+    <AssociationSet Name="FK_EventSession" Association="ticketsModel.FK_EventSession">
+      <End Role="EventSet" EntitySet="EventSet" />
+      <End Role="SessionSet" EntitySet="SessionSet" />
     </AssociationSet>
-    <AssociationSet Name="SessionTicket" Association="ticketsModel.SessionTicket">
-      <End EntitySet="SessionSet" Role="Session" />
-      <End EntitySet="TicketSet" Role="Ticket" />
+    <AssociationSet Name="FK_EventTicket" Association="ticketsModel.FK_EventTicket">
+      <End Role="EventSet" EntitySet="EventSet" />
+      <End Role="TicketSet" EntitySet="TicketSet" />
     </AssociationSet>
-    <AssociationSet Name="SessionTicketSale" Association="ticketsModel.SessionTicketSale">
-      <End Role="Session" EntitySet="SessionSet" />
-      <End Role="TicketSale" EntitySet="TicketSaleSet" />
+    <AssociationSet Name="FK_SessionTicketSale" Association="ticketsModel.FK_SessionTicketSale">
+      <End Role="SessionSet" EntitySet="SessionSet" />
+      <End Role="TicketSaleSet" EntitySet="TicketSaleSet" />
     </AssociationSet>
-    <AssociationSet Name="TicketTicketSale" Association="ticketsModel.TicketTicketSale">
-      <End Role="Ticket" EntitySet="TicketSet" />
-      <End Role="TicketSale" EntitySet="TicketSaleSet" />
+    <AssociationSet Name="FK_TicketTicketSale" Association="ticketsModel.FK_TicketTicketSale">
+      <End Role="TicketSet" EntitySet="TicketSet" />
+      <End Role="TicketSaleSet" EntitySet="TicketSaleSet" />
     </AssociationSet>
-    <AssociationSet Name="TransactionTicketSale" Association="ticketsModel.TransactionTicketSale">
-      <End Role="Transaction" EntitySet="TransactionSet" />
-      <End Role="TicketSale" EntitySet="TicketSaleSet" />
+    <AssociationSet Name="FK_TransactionTicketSale" Association="ticketsModel.FK_TransactionTicketSale">
+      <End Role="TransactionSet" EntitySet="TransactionSet" />
+      <End Role="TicketSaleSet" EntitySet="TicketSaleSet" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Event">
+  <EntityType Name="AspNetUser">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <NavigationProperty Name="Session" Relationship="ticketsModel.EventSession" FromRole="Event" ToRole="Session" />
-    <NavigationProperty Name="Ticket" Relationship="ticketsModel.EventTicket" FromRole="Event" ToRole="Ticket" />
-    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Updated" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AspNetUserClaim" Relationship="ticketsModel.AspNetUserClaim_fk0" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="TransactionSet" Relationship="ticketsModel.FK_UserTransactions" FromRole="AspNetUser" ToRole="TransactionSet" />
   </EntityType>
-  <EntityType Name="Session">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DateStart" Type="DateTime" Nullable="false" />
-    <Property Name="DateEnd" Type="DateTime" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="EventId" Type="Int32" Nullable="false" />
-    <Property Name="Price" Type="Double" Nullable="false" />
-    <Property Name="Description" Type="String" Nullable="false" />
-    <Property Name="SpacesAvailable" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Ticket" Relationship="ticketsModel.SessionTicket" FromRole="Session" ToRole="Ticket" />
-    <NavigationProperty Name="TicketSale" Relationship="ticketsModel.SessionTicketSale" FromRole="Session" ToRole="TicketSale" />
-  </EntityType>
-  <EntityType Name="Ticket">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="Price" Type="Double" Nullable="false" />
-    <Property Name="Description" Type="String" Nullable="false" />
-    <Property Name="EventId" Type="Int32" Nullable="false" />
-    <Property Name="SessionId" Nullable="false" Type="Int32" />
-  </EntityType>
-  <EntityType Name="Transaction">
+  <EntityType Name="AspNetUserClaim">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
-    <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
-    <NavigationProperty Name="TicketSale" Relationship="ticketsModel.TransactionTicketSale" FromRole="Transaction" ToRole="TicketSale" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="ticketsModel.AspNetUserClaim_fk0" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
   </EntityType>
-  <Association Name="EventSession">
-    <End Type="ticketsModel.Event" Role="Event" Multiplicity="1" />
-    <End Type="ticketsModel.Session" Role="Session" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Session">
-        <PropertyRef Name="EventId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserTransactions">
-    <End Type="ticketsModel.User" Role="User" Multiplicity="1" />
-    <End Type="ticketsModel.Transaction" Role="Transaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transaction">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="TicketSale">
+  <EntityType Name="EventSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SessionSet" Relationship="ticketsModel.FK_EventSession" FromRole="EventSet" ToRole="SessionSet" />
+    <NavigationProperty Name="TicketSet" Relationship="ticketsModel.FK_EventTicket" FromRole="EventSet" ToRole="TicketSet" />
+  </EntityType>
+  <EntityType Name="SessionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SpacesAvailable" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="EventSet" Relationship="ticketsModel.FK_EventSession" FromRole="SessionSet" ToRole="EventSet" />
+    <NavigationProperty Name="TicketSaleSet" Relationship="ticketsModel.FK_SessionTicketSale" FromRole="SessionSet" ToRole="TicketSaleSet" />
+  </EntityType>
+  <EntityType Name="TicketSaleSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -122,63 +91,113 @@
     <Property Name="SessionId" Type="Int32" Nullable="false" />
     <Property Name="TicketId" Type="Int32" Nullable="false" />
     <Property Name="TransactionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SessionSet" Relationship="ticketsModel.FK_SessionTicketSale" FromRole="TicketSaleSet" ToRole="SessionSet" />
+    <NavigationProperty Name="TicketSet" Relationship="ticketsModel.FK_TicketTicketSale" FromRole="TicketSaleSet" ToRole="TicketSet" />
+    <NavigationProperty Name="TransactionSet" Relationship="ticketsModel.FK_TransactionTicketSale" FromRole="TicketSaleSet" ToRole="TransactionSet" />
   </EntityType>
-  <Association Name="EventTicket">
-    <End Type="ticketsModel.Event" Role="Event" Multiplicity="1" />
-    <End Type="ticketsModel.Ticket" Role="Ticket" Multiplicity="*" />
+  <EntityType Name="TicketSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="SessionId" Type="Int32" />
+    <NavigationProperty Name="EventSet" Relationship="ticketsModel.FK_EventTicket" FromRole="TicketSet" ToRole="EventSet" />
+    <NavigationProperty Name="TicketSaleSet" Relationship="ticketsModel.FK_TicketTicketSale" FromRole="TicketSet" ToRole="TicketSaleSet" />
+  </EntityType>
+  <EntityType Name="TransactionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="ticketsModel.FK_UserTransactions" FromRole="TransactionSet" ToRole="AspNetUser" />
+    <NavigationProperty Name="TicketSaleSet" Relationship="ticketsModel.FK_TransactionTicketSale" FromRole="TransactionSet" ToRole="TicketSaleSet" />
+  </EntityType>
+  <Association Name="AspNetUserClaim_fk0">
+    <End Type="ticketsModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="ticketsModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Event">
+      <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Ticket">
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTransactions">
+    <End Type="ticketsModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="ticketsModel.TransactionSet" Role="TransactionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TransactionSet">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventSession">
+    <End Type="ticketsModel.EventSet" Role="EventSet" Multiplicity="1" />
+    <End Type="ticketsModel.SessionSet" Role="SessionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSet">
         <PropertyRef Name="EventId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="SessionTicket">
-    <End Type="ticketsModel.Session" Multiplicity="1" Role="Session" />
-    <End Type="ticketsModel.Ticket" Multiplicity="*" Role="Ticket" />
+  <Association Name="FK_EventTicket">
+    <End Type="ticketsModel.EventSet" Role="EventSet" Multiplicity="1" />
+    <End Type="ticketsModel.TicketSet" Role="TicketSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Session">
+      <Principal Role="EventSet">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Ticket">
+      <Dependent Role="TicketSet">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionTicketSale">
+    <End Type="ticketsModel.SessionSet" Role="SessionSet" Multiplicity="1" />
+    <End Type="ticketsModel.TicketSaleSet" Role="TicketSaleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TicketSaleSet">
         <PropertyRef Name="SessionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="SessionTicketSale">
-    <End Type="ticketsModel.Session" Role="Session" Multiplicity="1" />
-    <End Type="ticketsModel.TicketSale" Role="TicketSale" Multiplicity="*" />
+  <Association Name="FK_TicketTicketSale">
+    <End Type="ticketsModel.TicketSet" Role="TicketSet" Multiplicity="1" />
+    <End Type="ticketsModel.TicketSaleSet" Role="TicketSaleSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Session">
+      <Principal Role="TicketSet">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="TicketSale">
-        <PropertyRef Name="SessionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TicketTicketSale">
-    <End Type="ticketsModel.Ticket" Role="Ticket" Multiplicity="1" />
-    <End Type="ticketsModel.TicketSale" Role="TicketSale" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Ticket">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TicketSale">
+      <Dependent Role="TicketSaleSet">
         <PropertyRef Name="TicketId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="TransactionTicketSale">
-    <End Type="ticketsModel.Transaction" Role="Transaction" Multiplicity="1" />
-    <End Type="ticketsModel.TicketSale" Role="TicketSale" Multiplicity="*" />
+  <Association Name="FK_TransactionTicketSale">
+    <End Type="ticketsModel.TransactionSet" Role="TransactionSet" Multiplicity="1" />
+    <End Type="ticketsModel.TicketSaleSet" Role="TicketSaleSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Transaction">
+      <Principal Role="TransactionSet">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="TicketSale">
+      <Dependent Role="TicketSaleSet">
         <PropertyRef Name="TransactionId" />
       </Dependent>
     </ReferentialConstraint>

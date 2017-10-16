@@ -1,3 +1,4 @@
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\EntityFramework.xml
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.Business.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.Business.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.Common.dll
@@ -10,3 +11,11 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debu
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\obj\Debug\Tickets.Business.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\obj\Debug\Tickets.Business.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\obj\Debug\Tickets.Business.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.DataModel.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.DataModel.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.Helpers.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\log4net.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Tickets.Helpers.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Business\bin\Debug\log4net.xml

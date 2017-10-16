@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Tickets.API.Controllers
 {
     public class BaseController : ApiController
     {
+
         protected int GetLoggedUserId() {
             return 0;
         }

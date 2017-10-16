@@ -2,3 +2,6 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\D
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\Debug\Tickets.Model.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Debug\Tickets.Model.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Debug\Tickets.Model.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Debug\Tickets.Model.csprojResolveAssemblyReference.cache

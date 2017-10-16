@@ -26,5 +26,12 @@ namespace Tickets.Services
 
         [OperationContract]
         void RemoveUser(User user);
+
+        [OperationContract]
+        AspNetUser FindUser(string userName, string password);
+
+        [OperationContract]
+        AspNetUser GetByUserName(string username);
+
     }
 }

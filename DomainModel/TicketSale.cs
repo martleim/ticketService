@@ -11,12 +11,34 @@ namespace Tickets.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.ComponentModel.DataAnnotations;
     
+    [DataContract]
     public partial class TicketSale
     {
-        public int Id { get; set; }
-        public int SessionId { get; set; }
-        public int TicketId { get; set; }
-        public int TransactionId { get; set; }
+        
+    	[Key()]
+    	[DataMember(Name = "Id")]
+    	public int Id { get; set; }
+        
+    	[Required(ErrorMessage = "SessionId is required.")]
+    	[DataMember(Name = "SessionId", IsRequired = true)]
+    	public int SessionId { get; set; }
+        
+    	[Required(ErrorMessage = "TicketId is required.")]
+    	[DataMember(Name = "TicketId", IsRequired = true)]
+    	public int TicketId { get; set; }
+        
+    	[Required(ErrorMessage = "TransactionId is required.")]
+    	[DataMember(Name = "TransactionId", IsRequired = true)]
+    	public int TransactionId { get; set; }
+    
+        [DataMember(Name = "Session")]
+    	public virtual Session Session { get; set; }
+        [DataMember(Name = "Ticket")]
+    	public virtual Ticket Ticket { get; set; }
+        [DataMember(Name = "Transaction")]
+    	public virtual Transaction Transaction { get; set; }
     }
 }

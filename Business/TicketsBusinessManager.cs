@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Tickets.DataAccess;
 using Tickets.Common;
 using System;
+using Tickets.DataAccess.PartialRepositories;
 
 namespace Tickets.Business
 {
-    public class TicketBusinessManager : ITicketsManager
+    public class TicketBusinessManager : BaseManager, ITicketsManager
     {
-        private readonly IEventRepository _eventRepository;
-        private readonly ISessionRepository _sessionRepository;
-        private readonly ITicketRepository _ticketRepository;
-        private readonly ITransactionRepository _transactionRepository;
+        private readonly EventRepository _eventRepository;
+        private readonly SessionRepository _sessionRepository;
+        private readonly TicketRepository _ticketRepository;
+        private readonly TransactionRepository _transactionRepository;
         
         public TicketBusinessManager()
         {
@@ -22,10 +23,10 @@ namespace Tickets.Business
 
         }
 
-        public TicketBusinessManager(ISessionRepository sessionRepository,
-            ITransactionRepository transactionRepository, 
-            ITicketRepository ticketRepository, 
-            IEventRepository eventRepository)
+        public TicketBusinessManager(SessionRepository sessionRepository,
+            TransactionRepository transactionRepository, 
+            TicketRepository ticketRepository, 
+            EventRepository eventRepository)
         {
             _sessionRepository = sessionRepository;
             _transactionRepository = transactionRepository;

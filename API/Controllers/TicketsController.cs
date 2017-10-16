@@ -16,28 +16,28 @@ namespace Tickets.API.Controllers
         [Route("TicketSell/Events")]
         public IHttpActionResult GetEvents()
         {
-            return Json(new TicketsManagerProxy().GetAllEvents());
+            return Json(ProxyManager.TicketsManager.GetAllEvents());
         }
 
         [HttpGet]
         [Route("TicketSell/Sessions/Event/{eventId}")]
         public IHttpActionResult GetEventSessions(int eventId)
         {
-            return Json(new TicketsManagerProxy().GetAllEventSessions(eventId));
+            return Json(ProxyManager.TicketsManager.GetAllEventSessions(eventId));
         }
 
         [HttpGet]
         [Route("TicketSell/Tickets/Session/{sessionId}")]
         public IHttpActionResult GetSessionTickets(int sessionId)
         {
-            return Ok(new TicketsManagerProxy().GetAllSessionTickets(sessionId));
+            return Ok(ProxyManager.TicketsManager.GetAllSessionTickets(sessionId));
         }
 
         [HttpGet]
         [Route("TicketSell/Transactions")]
         public IHttpActionResult GetUserTransactions()
         {
-            return Ok(new TicketsManagerProxy().GetAllUserTransactions(GetLoggedUserId()));
+            return Ok(ProxyManager.TicketsManager.GetAllUserTransactions(GetLoggedUserId()));
         }
 
         [HttpPost]
@@ -45,7 +45,7 @@ namespace Tickets.API.Controllers
         public IHttpActionResult Transactions(Transaction transaction)
         {
             transaction.UserId = GetLoggedUserId();
-            new TicketsManagerProxy().AddTransaction(transaction);
+            ProxyManager.TicketsManager.AddTransaction(transaction);
             return Ok();
         }
 
@@ -54,7 +54,7 @@ namespace Tickets.API.Controllers
         public IHttpActionResult Transactions(int transactionId, Transaction transaction)
         {
             transaction.Id = transactionId;
-            new TicketsManagerProxy().UpdateTransaction(transaction);
+            ProxyManager.TicketsManager.UpdateTransaction(transaction);
             return Ok();
         }
 
@@ -63,7 +63,7 @@ namespace Tickets.API.Controllers
         public IHttpActionResult Transactions(int transactionId)
         {
             Transaction transaction = new Transaction() { Id = transactionId };
-            new TicketsManagerProxy().RemoveTransaction(transaction);
+            ProxyManager.TicketsManager.RemoveTransaction(transaction);
             return Ok();
         }
 

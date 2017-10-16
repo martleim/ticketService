@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -42,10 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SecurityManagerProxy.cs" />
-    <Compile Include="EventsManagerProxy.cs" />
+    <Compile Include="Proxies\AspNetUserManagerProxy.cs" />
+    <Compile Include="Proxies\BaseProxy.cs" />
+    <Compile Include="ProxyManager.cs" />
+    <Compile Include="Proxies\SecurityManagerProxy.cs" />
+    <Compile Include="Proxies\EventsManagerProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\EventsServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SecurityServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -55,9 +64,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="TicketsManagerProxy.cs" />
+    <Compile Include="Proxies\TicketsManagerProxy.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Tickets.Business.csproj">
+      <Project>{b68ff4fb-6ff4-464c-9d09-d6d9f0284ec4}</Project>
+      <Name>Tickets.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Tickets.Common.csproj">
       <Project>{ee69623e-a2c1-4685-80c0-7f5dc672e4d5}</Project>
       <Name>Tickets.Common</Name>
@@ -77,10 +90,12 @@
     <None Include="Properties\DataSources\Tickets.DomainModel.Ticket.datasource" />
     <None Include="Properties\DataSources\Tickets.DomainModel.TicketCategory.datasource" />
     <None Include="Properties\DataSources\Tickets.DomainModel.Transaction.datasource" />
+    <None Include="Properties\DataSources\Tickets.Model.AspNetUser.datasource" />
     <None Include="Properties\DataSources\Tickets.Model.Event.datasource" />
     <None Include="Properties\DataSources\Tickets.Model.Session.datasource" />
     <None Include="Properties\DataSources\Tickets.Model.Ticket.datasource" />
     <None Include="Properties\DataSources\Tickets.Model.Transaction.datasource" />
+    <None Include="Properties\DataSources\Tickets.Model.User.datasource" />
     <None Include="Service References\EventsServiceReference\EventsService.wsdl" />
     <None Include="Service References\EventsServiceReference\EventsService.xsd">
       <SubType>Designer</SubType>
@@ -89,6 +104,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\EventsServiceReference\EventsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityServiceReference\SecurityService.wsdl" />
+    <None Include="Service References\SecurityServiceReference\SecurityService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityServiceReference\SecurityService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityServiceReference\SecurityService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\TicketsServiceReference\TicketsService.wsdl" />
@@ -104,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\EventsServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SecurityServiceReference\" />
     <WCFMetadataStorage Include="Service References\TicketsServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +158,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EventsServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityServiceReference\SecurityService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

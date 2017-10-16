@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="05d10bd8-c5a7-4a72-9fb5-8c042fac3530" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Tickets.Services/SecurityService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SecurityService.xsd" MetadataType="Schema" ID="cb95ede0-a125-423b-80ee-5400f30fc8dc" SourceId="1" SourceUrl="http://localhost/Tickets.Services/SecurityService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SecurityService.wsdl" MetadataType="Wsdl" ID="64632127-c7a3-480f-95d7-72a4ad4facee" SourceId="1" SourceUrl="http://localhost/Tickets.Services/SecurityService.svc?wsdl" />
+    <MetadataFile FileName="SecurityService1.xsd" MetadataType="Schema" ID="b646be1d-32fa-4ded-a27c-10e4f1c03a5b" SourceId="1" SourceUrl="http://localhost/Tickets.Services/SecurityService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SecurityService.disco" MetadataType="Disco" ID="49ea6666-d41f-4c7b-88fa-cd2b43a0d428" SourceId="1" SourceUrl="http://localhost/Tickets.Services/SecurityService.svc?disco" />
+    <MetadataFile FileName="SecurityService2.xsd" MetadataType="Schema" ID="d13250e6-9a49-428a-9698-0f22466facf5" SourceId="1" SourceUrl="http://localhost/Tickets.Services/SecurityService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

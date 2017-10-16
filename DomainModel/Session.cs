@@ -11,28 +11,55 @@ namespace Tickets.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.ComponentModel.DataAnnotations;
     
+    [DataContract]
     public partial class Session
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Session()
         {
-            this.Ticket = new HashSet<Ticket>();
             this.TicketSale = new HashSet<TicketSale>();
         }
     
-        public int Id { get; set; }
-        public System.DateTime DateStart { get; set; }
-        public System.DateTime DateEnd { get; set; }
-        public string Name { get; set; }
-        public int EventId { get; set; }
-        public double Price { get; set; }
-        public string Description { get; set; }
-        public short SpacesAvailable { get; set; }
+        
+    	[Key()]
+    	[DataMember(Name = "Id")]
+    	public int Id { get; set; }
+        
+    	[Required(ErrorMessage = "DateStart is required.")]
+    	[DataMember(Name = "DateStart", IsRequired = true)]
+    	public System.DateTime? DateStart { get; set; }
+        
+    	[Required(ErrorMessage = "DateEnd is required.")]
+    	[DataMember(Name = "DateEnd", IsRequired = true)]
+    	public System.DateTime? DateEnd { get; set; }
+        
+    	[Required(ErrorMessage = "Name is required.")]
+    	[DataMember(Name = "Name", IsRequired = true)]
+    	public string Name { get; set; }
+        
+    	[Required(ErrorMessage = "EventId is required.")]
+    	[DataMember(Name = "EventId", IsRequired = true)]
+    	public int EventId { get; set; }
+        
+    	[Required(ErrorMessage = "Price is required.")]
+    	[DataMember(Name = "Price", IsRequired = true)]
+    	public double Price { get; set; }
+        
+    	[Required(ErrorMessage = "Description is required.")]
+    	[DataMember(Name = "Description", IsRequired = true)]
+    	public string Description { get; set; }
+        
+    	[Required(ErrorMessage = "SpacesAvailable is required.")]
+    	[DataMember(Name = "SpacesAvailable", IsRequired = true)]
+    	public short SpacesAvailable { get; set; }
     
+        [DataMember(Name = "Event")]
+    	public virtual Event Event { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Ticket { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TicketSale> TicketSale { get; set; }
+        [DataMember(Name = "TicketSale")]
+    	public virtual ICollection<TicketSale> TicketSale { get; set; }
     }
 }

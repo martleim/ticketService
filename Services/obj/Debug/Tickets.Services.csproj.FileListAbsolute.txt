@@ -29,3 +29,11 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tick
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\obj\Debug\Tickets.Services.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\obj\Debug\Tickets.Services.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\obj\Debug\Tickets.Services.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.DataModel.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.DataModel.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Helpers.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\log4net.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\Tickets.Helpers.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\Services\bin\log4net.xml

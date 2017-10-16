@@ -30,7 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,9 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetUserManager.cs" />
+    <Compile Include="BaseManager.cs" />
     <Compile Include="SecurityBusinessManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EventsBusinessManager.cs" />
+    <Compile Include="Security\AspNetUserManager.cs" />
+    <Compile Include="Security\AspNetUserStore.cs" />
+    <Compile Include="Security\IPasswordEncoder.cs" />
+    <Compile Include="Security\PasswordHasher.cs" />
+    <Compile Include="Security\SHA256ManagedPasswordEncoder.cs" />
     <Compile Include="TicketsBusinessManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +70,13 @@
       <Project>{b647db4c-9fa8-41c5-a733-466b38b683c5}</Project>
       <Name>Tickets.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tickets.Helpers\Tickets.Helpers.csproj">
+      <Project>{49ee17de-5756-41db-b8df-04305e50ab96}</Project>
+      <Name>Tickets.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

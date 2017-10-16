@@ -2,3 +2,4 @@ C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\R
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\bin\Release\Tickets.Model.pdb
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Release\Tickets.Model.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Release\Tickets.Model.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DomainModel\obj\Release\Tickets.Model.csprojResolveAssemblyReference.cache

@@ -11,7 +11,10 @@ namespace Tickets.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.ComponentModel.DataAnnotations;
     
+    [DataContract]
     public partial class Transaction
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,11 +23,23 @@ namespace Tickets.Model
             this.TicketSale = new HashSet<TicketSale>();
         }
     
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public System.DateTime TimeStamp { get; set; }
+        
+    	[Key()]
+    	[DataMember(Name = "Id")]
+    	public int Id { get; set; }
+        
+    	[Required(ErrorMessage = "UserId is required.")]
+    	[DataMember(Name = "UserId", IsRequired = true)]
+    	public int UserId { get; set; }
+        
+    	[Required(ErrorMessage = "TimeStamp is required.")]
+    	[DataMember(Name = "TimeStamp", IsRequired = true)]
+    	public System.DateTime? TimeStamp { get; set; }
     
+        [DataMember(Name = "AspNetUser")]
+    	public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TicketSale> TicketSale { get; set; }
+        [DataMember(Name = "TicketSale")]
+    	public virtual ICollection<TicketSale> TicketSale { get; set; }
     }
 }

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Tickets.DataAccess;
 using Tickets.Common;
 using System;
+using Tickets.DataAccess.PartialRepositories;
 
 namespace Tickets.Business
 {
-    public class SecurityBusinessManager : ISecurityManager
+    public class SecurityBusinessManager : BaseManager, ISecurityManager
     {
 
-        private readonly IEventRepository _eventRepository;
+        private readonly EventRepository _eventRepository;
 
 
         public SecurityBusinessManager()
@@ -18,7 +19,7 @@ namespace Tickets.Business
 
         }
 
-        public SecurityBusinessManager(IEventRepository eventRepository)
+        public SecurityBusinessManager(EventRepository eventRepository)
         {
             _eventRepository = eventRepository;
         }

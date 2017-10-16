@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d7fbdb935214575a274a4f8900e9869" Name="Diagram1">
+        <EntityTypeShape EntityType="TicketsModel.AspNetUser" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TicketsModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TicketsModel.Event" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TicketsModel.Session" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TicketsModel.Ticket" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TicketsModel.TicketSale" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TicketsModel.Transaction" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="TicketsModel.AspNetUserClaim_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="TicketsModel.FK_UserTransactions" ManuallyRouted="false" />
+        <AssociationConnector Association="TicketsModel.FK_EventSession" ManuallyRouted="false" />
+        <AssociationConnector Association="TicketsModel.FK_EventTicket" ManuallyRouted="false" />
+        <AssociationConnector Association="TicketsModel.FK_SessionTicketSale" ManuallyRouted="false" />
+        <AssociationConnector Association="TicketsModel.FK_TicketTicketSale" ManuallyRouted="false" />
+        <AssociationConnector Association="TicketsModel.FK_TransactionTicketSale" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

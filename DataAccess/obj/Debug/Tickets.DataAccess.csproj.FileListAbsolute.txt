@@ -1,8 +1,16 @@
-C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\obj\Debug\Tickets.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.DataAccess.dll.config
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.DataAccess.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.DataAccess.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.Model.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.Model.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\obj\Debug\Tickets.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\obj\Debug\Tickets.DataAccess.dll
 C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\obj\Debug\Tickets.DataAccess.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.DataModel.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Tickets.DataModel.pdb
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MartinL\Documents\Visual Studio 2015\Projects\Tickets\DataAccess\bin\Debug\Microsoft.AspNet.Identity.Core.xml
